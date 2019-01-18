@@ -14,8 +14,7 @@ class Home extends React.Component{
                 </select>
                 <input type="text" placeholder="Search.."/> 
                 <button type="submit">Submit</button>
-                <label>Team: <input type = "text" onChange = {this.onTeamChange} /></label>
-                <button>Submit</button>
+                
             </form>
            
         )
