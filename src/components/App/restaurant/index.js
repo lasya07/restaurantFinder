@@ -1,11 +1,17 @@
 import React from "react"
+import logo from "../image/image2.jpeg"
 
 class Home extends React.Component{
 
     render() {
+        const style = {
+            height : 150,
+            width : '100%'
+       };
+            
         return(
-            <form onSubmit = {this.onFormSubmit} >
-                <h1>WEB APP</h1>
+            <div>
+            
                 <hr></hr>
                 <select name="Places">
                     <option value="Hyderabad">Hyderabad</option>
@@ -14,8 +20,8 @@ class Home extends React.Component{
                 </select>
                 <input type="text" placeholder="Search.."/> 
                 <button type="submit">Submit</button>
-                
-            </form>
+                 
+            </div>
            
         )
     }
