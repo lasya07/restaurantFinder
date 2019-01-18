@@ -1,7 +1,7 @@
 import React from "react"
 import logo from "../image/image2.jpeg"
 
-class Home extends React.Component{
+class Search extends React.Component{
 
     render() {
         const style = {
@@ -28,4 +28,4 @@ class Home extends React.Component{
 
 }
 
-export default Home;
+export default Search;

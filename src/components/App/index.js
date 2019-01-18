@@ -1,14 +1,13 @@
 import React from "react";
-import Home from "./restaurant";
-import Header from "./restaurant/header";
+import Header from "./home/header";
+import Cards from "./home/cards";
 
 
 class App extends React.Component {
        
     render() {
         return (
-               //<Home/>
-                <Header/>
+                <Cards/>
         );
     }
 } 
