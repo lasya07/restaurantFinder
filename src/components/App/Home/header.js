@@ -1,37 +1,56 @@
 import React from "react"
 import logo from "../image/image2.jpeg"
-
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem } from 'reactstrap';
 
 class Header extends React.Component{
 
-    render() {
-        const style = {
-            position:'relative',
-            height : 150,
-            width : '100%'
-       };
-       const name_style = {
-           position: 'absolute',
-           top: '20px',
-           left :'520px',
-           fontSize:75,
-           color: 'white'
-       }
-       const button ={
-        position: 'absolute',
-        top: '15px',
-        left :'1000px',
-        fontSize:20,
-        color: 'white'
-       }
+    constructor(props) {
+        super(props);
     
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+          isOpen: false
+        };
+      }
+      toggle() {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
+      }
+
+    render() {
+        const img_style = {
+          //  position:'relative',
+            // height : '50px',
+            // maxWidth : '100%'
+       };
+
         return(
             
-                <div className="logo" >
-                    <img src={logo}   style = {style}/>
-                    <div id="name" style = {name_style}>WEB APP</div>
-                    <div id = "button" style = {button}>Sign Up</div>
-                </div>    
+            <div style={{backgroundColor:'#353535'}}>
+        <Navbar color="#353535'" light expand="md">
+          <NavbarBrand href="#" style={{color: '#fffa8b'}}>WebApp</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/" style={{color: '#fffa8b'}}>SignUp</NavLink>
+              </NavItem>              
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
                             
            
         )
