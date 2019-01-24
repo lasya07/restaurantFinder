@@ -1,5 +1,7 @@
 import React from "react"
 import logo from "../image/image2.jpeg"
+import { Container, Row, Col } from 'reactstrap';
+
 
 class Search extends React.Component{
 
@@ -8,19 +10,27 @@ class Search extends React.Component{
             height : 150,
             width : '100%'
        };
+
             
         return(
-            <div>
-            
-                <hr></hr>
-                <select name="Places">
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Pune">Pune</option>
-                    <option value="Mumbai">Mumbai</option>
-                </select>
-                <input type="text" placeholder="Search.."/> 
-                <button type="submit">Submit</button>
-                 
+            <div> 
+               
+                    <Row>
+                        <div class="col-md-3" style={{textAlign:'center'}}>
+                        <select name="Places" style={{position: 'relative',width:'50%'}}>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Mumbai">Mumbai</option>
+                        </select>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" placeholder="Search for restaurant and cuisine .." style={{width:'100%'}}/> 
+                        </div>
+                        <div class="col-md-3" style={{textAlign:'center'}}>
+                        <button type="submit" style={{position: 'relative',width : '50%'}}>Submit</button>
+                        </div>
+                    </Row>
+              
             </div>
            
         )
