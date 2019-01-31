@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, FormGroup, FormControl, ControlLabel,Col,ButtonGroup } from "react-bootstrap";
 import "./Login.css";
 import { withRouter } from 'react-router-dom';
+import Home from "./../home/index"
 
 export default class Login extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class Login extends Component {
   }
 
   routeChange(){
-    let path = `signup`;
+    let path = `Home`;
     this.props.history.push(path);
     }
 
