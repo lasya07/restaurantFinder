@@ -1,35 +1,44 @@
+
 import React from "react";
 import Header from "./header";
+import Final from "./final"
 import Cards from "./cards";
 import Search from "./search"
 import {CardDeck} from "reactstrap";
 import {CardColumns} from "reactstrap";
+import Login from "../login/login.js";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom'
+
+
 
 class Home extends React.Component {
        
     render() {
         return (
             
-            <div>
-                <Header/>
-                <div style={{position:'absolute',left:'200px'}}>
-                <hr></hr>
-                <Search/> 
-                <br></br>
-                <label>Near Me</label>
-                <CardColumns>
-                <Cards/>
-                 <Cards/>
-                 <Cards/>
-                 <Cards/>
-                 <Cards/>
-                 <Cards/>
-                </CardColumns>
-                </div>
-            </div>
+            
+            <Router>
+                <Switch>
+   
+
+                    <Route exact path ="/home" component ={Final}/>
+                    <Route exact path ="/login" component ={Login}/>
+                    
+                    <Redirect to ="/home"/>
+                </Switch>
+                    
+            </Router> 
+
 
         );
     }
 } 
 
 export default Home;
+
+

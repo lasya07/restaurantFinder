@@ -1,4 +1,6 @@
 import React from "react"
+
+import login from "../login/login"
 import logo from "../image/image2.jpeg"
 import {
     Collapse,
@@ -45,15 +47,14 @@ class Header extends React.Component{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/" style={{color: '#fffa8b'}}>SignUp</NavLink>
+                <NavLink href={'/login'} style={{color: '#fffa8b'}}>SignUp</NavLink>
               </NavItem>              
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
-                            
+      </div>                          
            
-        )
+        );
     }
 
 }
