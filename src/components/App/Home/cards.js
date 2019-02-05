@@ -1,10 +1,20 @@
 import React from "react"
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
-  
+    import {withRouter} from 'react-router-dom';
 
 
 class Cards extends React.Component {
+      
+        constructor(props){
+          super(props);
+          this.onButtonChange =this.onButtonChange.bind(this)
+         
+        }
+        onButtonChange() {
+          let path=`Details`;
+          this.props.history.push('/Details');
+        }
        render() {
         return(
             
@@ -14,7 +24,7 @@ class Cards extends React.Component {
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                <Button>Button</Button> 
+                <Button onClick={this.onButtonChange}>Button</Button> 
               </CardBody>
             </Card>
             
@@ -22,4 +32,4 @@ class Cards extends React.Component {
     }
 }
 
-export default Cards;
+export default withRouter(Cards);

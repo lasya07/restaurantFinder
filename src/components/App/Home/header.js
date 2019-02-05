@@ -47,7 +47,10 @@ class Header extends React.Component{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href={'/login'} style={{color: '#fffa8b'}}>SignUp</NavLink>
+                <NavLink href={'/Login'} style={{color: '#fffa8b'}}>Login</NavLink>
+              </NavItem> 
+              <NavItem>
+                <NavLink href={'/Signup'} style={{color: '#fffa8b',borderStyle:'groove'}}>Create an Account</NavLink>
               </NavItem>              
             </Nav>
           </Collapse>

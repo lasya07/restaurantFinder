@@ -19,9 +19,11 @@ class Details extends React.Component {
                 <Bread/>
                 <Search/> 
                 <br></br>
-                
                 </div>
                 <div><NaviBar/></div><br/>
+                <Menu/>
+                <Photo/>
+                <Rating/>
                 <Review/>
             </div>
                 

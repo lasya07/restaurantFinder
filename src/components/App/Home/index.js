@@ -7,6 +7,8 @@ import Search from "./search"
 import {CardDeck} from "reactstrap";
 import {CardColumns} from "reactstrap";
 import Login from "../login/login.js";
+import Signup from "../login/signup";
+import Details from "../restoDetails/index"
 import {
     BrowserRouter as Router,
     Route,
@@ -28,7 +30,8 @@ class Home extends React.Component {
 
                     <Route exact path ="/home" component ={Final}/>
                     <Route exact path ="/login" component ={Login}/>
-                    
+                    <Route exact path ="/Signup" component ={Signup}/>
+                    <Route path ="/Details" component ={Details}/>
                     <Redirect to ="/home"/>
                 </Switch>
                     
