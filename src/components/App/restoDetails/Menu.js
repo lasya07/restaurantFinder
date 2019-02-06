@@ -9,8 +9,8 @@ import {Carousel} from "react-bootstrap"
 class Menu extends React.Component {
        render() {
         return(
-            
-            <Carousel style = {{maxWidth:'50%'}} interval = '100000'>
+            <center>
+            <Carousel style = {{width:'30%'}} interval = '100000'>
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
@@ -44,7 +44,7 @@ class Menu extends React.Component {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            
+            </center>
             )
     }
 }

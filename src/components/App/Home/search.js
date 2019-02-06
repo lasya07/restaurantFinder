@@ -1,5 +1,5 @@
 import React from "react"
-import logo from "../image/image2.jpeg"
+import logo from "../image/Search.jpg"
 import { Container, Row, Col } from 'reactstrap';
 
 
@@ -14,9 +14,9 @@ class Search extends React.Component{
             
         return(
             <div> 
-               
+                
                     <Row>
-                        <div class="col-md-3" style={{textAlign:'center'}}>
+                    <div class="col-md-3" style={{textAlign:'center'}}>
                         <select name="Places" style={{position: 'relative',width:'50%'}}>
                             <option value="Hyderabad">Hyderabad</option>
                             <option value="Pune">Pune</option>

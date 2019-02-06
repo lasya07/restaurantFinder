@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {withRouter} from 'react-router-dom';
 
 class NaviBar extends React.Component{
     render() {
@@ -33,16 +33,16 @@ class NaviBar extends React.Component{
 <div>
 
     <ul style={ul}>
-    <li style={li}><a href="#home" style={a}>Overview</a></li>
-    <li style={li}><a href="#news" style={a}>Menu</a></li>
-    <li style={li}><a href="#contact" style={a}>Photos</a></li>
-    <li style={li}><a href="#about" style={a}>Reviews</a></li>
+    <li style={li}><a href="/Overview" style={a}>Overview</a></li>
+    <li style={li}><a href={"/Menu"} style={a}>Menu</a></li>
+    <li style={li}><a href="/Photo" style={a}>Photos</a></li>
+    <li style={li}><a href="/Review" style={a}>Reviews</a></li>
     </ul>   
     </div>
 )
 }
 }
-export default NaviBar;
+export default withRouter(NaviBar);
 
 
 

@@ -8,13 +8,7 @@ export default class rating extends React.Component {
 
        render() {
         return(
-        //     <StarRatings
-        //     rating={this.state.rating}
-        //     starRatedColor="blue"
-        //     changeRating={this.changeRating}
-        //     numberOfStars={6}
-        //     name='rating'
-        //   />
+        
         <fieldset class={styles.rating}>
        
                 <legend>Please rate:</legend>
@@ -25,7 +19,7 @@ export default class rating extends React.Component {
                 <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
                
         </fieldset>
-  
+        
 
         );
     }

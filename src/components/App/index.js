@@ -1,18 +1,40 @@
 import React from "react";
 import Home from "./Home/index"
 
-import Details from "./restoDetails";
+import Details from "./restoDetails/index";
 import Login from "./login/login";
+import MenuFinal from "./restoDetails/menuFinal"
+import Signup from "./login/signup";
+import Final from "./Home/index"
+import Overview from "./restoDetails/index"
+import PhotoFinal from "./restoDetails/photoFinal";
+import ReviewFinal from "./restoDetails/ReviewFinal";
+
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom'
 
 
 class App extends React.Component {
        
     render() {
         return (
-            
-          <Home/>  
-          //<Details/>
-          //<Login/>
+            <Router>
+            <Switch>
+                <Route exact path ="/home" component ={Final}/>
+                <Route path ="/login" component ={Login}/>
+                <Route path ="/Signup" component ={Signup}/>
+                <Route path ="/Details" component ={Details}/>
+                <Route path ="/Menu" component ={MenuFinal}/>
+                <Route path="/Overview" component={Overview}/>
+                <Route path="/Photo" component={PhotoFinal}/>
+                <Route path="/Review" component={ReviewFinal}/>
+                <Redirect to ="/home"/>
+            </Switch>
+        </Router> 
         
         );
     }
