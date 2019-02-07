@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } from "react-bootstrap";
-import "./Login.css";
 
-export default class signup extends Component {
+
+ class Signup extends Component {
   constructor(props) {
     super(props);
 
@@ -78,3 +78,5 @@ export default class signup extends Component {
     );
   }
 }
+
+export default Signup;

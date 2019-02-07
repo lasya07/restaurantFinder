@@ -13,7 +13,7 @@ class Cards extends React.Component {
         }
         onButtonChange() {
           let path=`Details`;
-          this.props.history.push('/Details');
+          this.props.history.push(path);
         }
        render() {
         return(

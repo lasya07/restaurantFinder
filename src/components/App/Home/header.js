@@ -32,12 +32,7 @@ class Header extends React.Component{
       }
 
     render() {
-        const img_style = {
-          //  position:'relative',
-            // height : '50px',
-            // maxWidth : '100%'
-       };
-
+        
         return(
             
             <div style={{backgroundColor:'#353535'}}>

@@ -30,7 +30,7 @@ class NaviBar extends React.Component{
 
   return (
    
-<div>
+<div >
 
     <ul style={ul}>
     <li style={li}><a href="/Overview" style={a}>Overview</a></li>

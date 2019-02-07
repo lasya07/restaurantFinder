@@ -6,7 +6,7 @@ class Bread extends React.Component{
   return (
     <div>
       <Breadcrumb>
-        <BreadcrumbItem><a href="#" style={{color: '#6c757d'}}>Home</a></BreadcrumbItem>
+        <BreadcrumbItem><a href="/home" style={{color: '#6c757d'}}>Home</a></BreadcrumbItem>
         <BreadcrumbItem active style={{color: '#6c757d'}}>Details</BreadcrumbItem>
       </Breadcrumb>
     </div>

@@ -15,7 +15,7 @@ class Search extends React.Component{
         return(
             <div> 
                 
-                    <Row>
+                    <Row style={{marginTop:'-200px'}}>
                     <div class="col-md-3" style={{textAlign:'center'}}>
                         <select name="Places" style={{position: 'relative',width:'50%'}}>
                             <option value="Hyderabad">Hyderabad</option>

@@ -6,6 +6,7 @@ import SearchImage from "./searchImage"
 import {CardDeck} from "reactstrap";
 import {CardColumns} from "reactstrap";
 import Login from "../login/login.js";
+import Filter from "./filter"
 import {
     BrowserRouter as Router,
     Route,
@@ -14,32 +15,38 @@ import {
 } from 'react-router-dom'
 
 
-class Final extends React.Component {
+class Home extends React.Component {
        
     render() {
         return (
-            
-            <div>
-                <Header/>
-                <div style={{position:'absolute',left:'200px'}}>
+            <div >
+            <div style ={{position:'relative',width:'100%'}}>
+            <Header/>
+            </div>
                 <hr></hr>
+                <div class="ml-auto" >
                 <SearchImage/>
-                <Search/> 
+                </div>
                 <br></br>
+                <div>
+                <Search/> </div>
+                <br></br>
+                
+                <div class="ml-auto" style={{position:'absolute',left:'250px',marginTop:'200px'}}>
+                
                 <label>Near Me</label>
                 <CardColumns>
-                <Cards/>
-                 <Cards/>
-                 <Cards/>
-                 <Cards/>
-                 <Cards/>
-                 <Cards/>
+                    <Cards/>
+                    <Cards/>
+                    <Cards/>
+                    <Cards/>
+                    <Cards/>
+                    <Cards/>
                 </CardColumns>
                 </div>
             </div>
-
         );
     }
 } 
 
-export default Final;
+export default Home;

@@ -1,11 +1,11 @@
 import React from "react";
-import Home from "./Home/index"
+
 
 import Details from "./restoDetails/index";
 import Login from "./login/login";
 import MenuFinal from "./restoDetails/menuFinal"
 import Signup from "./login/signup";
-import Final from "./Home/index"
+import Home from "./Home/index"
 import Overview from "./restoDetails/index"
 import PhotoFinal from "./restoDetails/photoFinal";
 import ReviewFinal from "./restoDetails/ReviewFinal";
@@ -24,7 +24,7 @@ class App extends React.Component {
         return (
             <Router>
             <Switch>
-                <Route exact path ="/home" component ={Final}/>
+                <Route exact path ="/home" component ={Home}/>
                 <Route path ="/login" component ={Login}/>
                 <Route path ="/Signup" component ={Signup}/>
                 <Route path ="/Details" component ={Details}/>
