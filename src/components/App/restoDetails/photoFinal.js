@@ -2,7 +2,7 @@ import React from "react";
 import Photo from "./photos";
 import Bread from "./breadCrumbs"
 import Header from "./../home/header"
-import Search from "./../home/search"
+import Search from "./../Home/search";
 import NaviBar from "./NaviBar";
 
 class PhotoFinal extends React.Component {

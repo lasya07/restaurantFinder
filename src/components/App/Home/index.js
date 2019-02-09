@@ -28,7 +28,7 @@ class Home extends React.Component {
                 <SearchImage/>
                 </div>
                 <br></br>
-                <div>
+                <div style={{marginTop:'-200px'}}>
                 <Search/> </div>
                 <br></br>
                 
