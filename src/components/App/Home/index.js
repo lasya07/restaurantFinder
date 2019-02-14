@@ -13,9 +13,11 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
-
+ 
 
 class Home extends React.Component {
+
+   
        
     render() {
         return (
@@ -35,13 +37,9 @@ class Home extends React.Component {
                 <div class="ml-auto" style={{position:'absolute',left:'250px',marginTop:'200px'}}>
                 
                 <label>Near Me</label>
-                <CardColumns>
-                    <Cards/>
-                    <Cards/>
-                    <Cards/>
-                    <Cards/>
-                    <Cards/>
-                    <Cards/>
+
+                <CardColumns >
+                    <Cards/> 
                 </CardColumns>
                 </div>
             </div>
