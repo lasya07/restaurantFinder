@@ -1,10 +1,23 @@
 import React from "react";
+<<<<<<< HEAD
 import Hello from "./incrementer/index";
 import Incrementer from "./incrementer/index";
 import Table from "./table/index";
 import View from "./view/index";
 import Form from "./form/index"
 import 'bootstrap/dist/css/bootstrap.css';
+=======
+
+
+import Details from "./restoDetails/index";
+import Login from "./login/login";
+import MenuFinal from "./restoDetails/menuFinal"
+import Signup from "./login/signup";
+import Home from "./Home/index"
+import Overview from "./restoDetails/index"
+import PhotoFinal from "./restoDetails/photoFinal";
+import ReviewFinal from "./restoDetails/ReviewFinal";
+>>>>>>> 240cfacbc958f5ad9719b61f313d9fc49ce2a9ad
 
 import {
     BrowserRouter as Router,
@@ -18,6 +31,7 @@ import signup from "./login/signup";
 
 
 class App extends React.Component {
+<<<<<<< HEAD
     
     // constructor(props) {
     //     super(props)
@@ -89,6 +103,25 @@ class App extends React.Component {
                 </Switch>                                                                   
             </Router>
 
+=======
+       
+    render() {
+        return (
+            <Router>
+            <Switch>
+                <Route exact path ="/home" component ={Home}/>
+                <Route path ="/login" component ={Login}/>
+                <Route path ="/Signup" component ={Signup}/>
+                <Route path ="/Details" component ={Details}/>
+                <Route path ="/Menu" component ={MenuFinal}/>
+                <Route path="/Overview" component={Overview}/>
+                <Route path="/Photo" component={PhotoFinal}/>
+                <Route path="/Review" component={ReviewFinal}/>
+                <Redirect to ="/home"/>
+            </Switch>
+        </Router> 
+        
+>>>>>>> 240cfacbc958f5ad9719b61f313d9fc49ce2a9ad
         );
     }
 } 

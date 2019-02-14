@@ -1,12 +1,17 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader, Modal } from "react-bootstrap";
 import "./login.css";
 import login from "./login";
 import {Route,Router} from "react-router-dom";
 
 var body;
+=======
+import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } from "react-bootstrap";
+>>>>>>> 240cfacbc958f5ad9719b61f313d9fc49ce2a9ad
 
-export default class signup extends Component {
+
+ class Signup extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -138,3 +143,5 @@ export default class signup extends Component {
     );
   }
 }
+
+export default Signup;
