@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Form, Button, FormGroup, FormControl, ControlLabel,Col,ButtonGroup } from "react-bootstrap";
-import "./Login.css";
+import "./login.css";
 import { withRouter } from 'react-router-dom';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
+    
+
 
     this.state = {
       email: "",
@@ -34,13 +36,13 @@ export default class Login extends Component {
     event.preventDefault();
   }
 
+  
   render() {
     return (
      
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} horizontal>
           <h1>Login Here!!</h1>
-          <Form horizontal>
-          <FormGroup controlId="email">
+           <FormGroup controlId="email">
             <Col componentClass={ControlLabel} sm={2}>
               Email
             </Col>
@@ -77,9 +79,9 @@ export default class Login extends Component {
             </ButtonGroup>
           </FormGroup>
         </Form>
-
-        </Form>
-     
+          
     );
   }
 }
+
+export default withRouter(Login);

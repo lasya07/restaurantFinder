@@ -4,6 +4,7 @@ import Incrementer from "./incrementer/index";
 import Table from "./table/index";
 import View from "./view/index";
 import Form from "./form/index"
+import 'bootstrap/dist/css/bootstrap.css';
 
 import {
     BrowserRouter as Router,
@@ -11,59 +12,61 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
+import Login from "./login/login";
+import signup from "./login/signup";
 
-const tableHeaders=['Id', 'Name', 'Alias', 'Team'];
+
 
 class App extends React.Component {
     
-    constructor(props) {
-        super(props)
-        this.createRecord = this.createRecord.bind(this)
-    }
-    state = {
-        tableValues: []                          
-    }
-    fetchList() {
-        let self = this;
-        const request = new Request('/heroes',{method: 'GET', headers: {"content-type": "application/json"}});                                    
-        fetch(request)
-        .then(res => res.json())
-        .then(function(data){
-            self.setState({'tableValues': data});
-        });
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.createRecord = this.createRecord.bind(this)
+    // }
+    // state = {
+    //     tableValues: []                          
+    // }
+    // fetchList() {
+    //     let self = this;
+    //     const request = new Request('/heroes',{method: 'GET', headers: {"content-type": "application/json"}});                                    
+    //     fetch(request)
+    //     .then(res => res.json())
+    //     .then(function(data){
+    //         self.setState({'tableValues': data});
+    //     });
+    // }
 
-    componentDidMount() {
-        this.fetchList()
-    }
+    // componentDidMount() {
+    //     this.fetchList()
+    // }
 
-    createRecord(name, alias, team) {
-        const self = this;
-        var body = {
-            name: name,
-            alias: alias,
-            team: team
-        };
-        console.log(name, alias,team)
-        var request = new Request('/heroes',{
-        method: 'POST', 
-        body: JSON.stringify(body),
-        headers:{
-            'content-type': 'application/json'
-        }
-    });
-        fetch(request)
-        .then(function(){
-            self.fetchList();
-        });
-    }
+    // createRecord(name, alias, team) {
+    //     const self = this;
+    //     var body = {
+    //         name: name,
+    //         alias: alias,
+    //         team: team
+    //     };
+    //     console.log(name, alias,team)
+    //     var request = new Request('/heroes',{
+    //     method: 'POST', 
+    //     body: JSON.stringify(body),
+    //     headers:{
+    //         'content-type': 'application/json'
+    //     }
+    // });
+    //     fetch(request)
+    //     .then(function(){
+    //         self.fetchList();
+    //     });
+    // }
 
    
     render() {
         return (
             <Router>
                 <Switch>
-                    <Route exact path = "/List" render = {(props) => {
+                    {/* <Route exact path = "/List" render = {(props) => {
                         return <Table 
                                     values = {this.state.tableValues} 
                                     headers = {tableHeaders} 
@@ -77,9 +80,12 @@ class App extends React.Component {
                         return <Form 
                         formSubmitCallback = {this.createRecord}
                         history = {props.history}/>
-                    }}/>
+                    }}/> */}
+                    <Route exact path = "/Login" component = {Login}/>
 
-                    <Redirect to = "/List" />
+                    <Route exact path = "/signup" component = {signup}/>
+
+                    <Redirect to = "/Login" />
                 </Switch>                                                                   
             </Router>
 
