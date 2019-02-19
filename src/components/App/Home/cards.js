@@ -52,7 +52,7 @@ class Cards extends React.Component {
            
           <div>{this.state.data.map((RestaurantDetails,index) =>{
             return(
-            <Card width="100%">
+            <Card width="100%" key = {index}>
               <CardImg top width="100%" alt="Card image cap"/>
               <CardBody> 
                    <div key={index}>

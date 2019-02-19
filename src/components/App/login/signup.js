@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader, Modal } from "react-bootstrap";
+import { Form, Button, FormGroup, FormControl, FormLabel,Col,PageHeader, Modal } from "react-bootstrap";
 import "./login.css";
 import login from "./login";
 import {Route,Router} from "react-router-dom";
@@ -20,24 +20,11 @@ var body;
       username: "",
       password: "",
       confirmPassword: ""
+      
     };
 
   }
 
-  // onEmailChange(event) {
-  //   //console.log(event.target.value);
-  //   this.setState({email: event.target.value});
-  // }
-
-  // onPasswordChange(event) {
-  //   //console.log(event.target.value);
-  //   this.setState({password: event.target.value});
-  // }
-
-  // onConfirmPasswordChange(event) {
-  //   //console.log(event.target.value);
-  //   this.setState({confirmPassword: event.target.value});
-  // }
 
   validateForm() {
     return this.state.username.length > 0 && this.state.password.length > 5 && this.state.password == this.state.confirmPassword;
@@ -48,6 +35,8 @@ var body;
       [event.target.id]: event.target.value
     });
   }
+
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -88,16 +77,11 @@ var body;
 
   render() {
     return (
-            <Modal.Dialog>
+          <Modal.Dialog>  
             <Form onSubmit={this.handleSubmit } horizontal>
-            
-            
-                <PageHeader>
-                    Register Here!! 
-                </PageHeader>
-
+            <Modal.Header >Register Here!!</Modal.Header>            
                 <FormGroup controlId="username">
-                    <Col componentClass={ControlLabel} sm={2}> Email </Col>
+                    <Col componentClass={FormLabel} sm={2}> Email </Col>
                     <Col sm={10}>
                         <FormControl type="username" placeholder="username" 
                                     value = {this.state.email} 
@@ -107,7 +91,7 @@ var body;
                 </FormGroup>
                 
                 <FormGroup controlId="password">
-                    <Col componentClass={ControlLabel} sm={2}>Password</Col>
+                    <Col componentClass={FormLabel} sm={2}>Password</Col>
                     <Col sm={10}>
                     <FormControl type="password" placeholder="Password" 
                                     value={this.state.password}
@@ -117,7 +101,7 @@ var body;
                 </FormGroup>
 
                 <FormGroup controlId="confirmPassword">
-                    <Col componentClass={ControlLabel} sm={2}>Password</Col>
+                    <Col componentClass={FormLabel} sm={2}>Password</Col>
                     <Col sm={10}>
                     <FormControl type="password" placeholder=" Confirm Password" 
                                     value={this.state.confirmPassword}
