@@ -1,20 +1,33 @@
 import React, { Component } from "react";
-import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } from "react-bootstrap";
+import { Form, Button, FormGroup, FormControl, FormLabel,Col,PageHeader, Modal } from "react-bootstrap";
+import "./login.css";
+import login from "./login";
+import {Route,Router} from "react-router-dom";
+
+var body;
 
 
  class Signup extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.validateForm = this.validateForm.bind(this);
 
+    //
+    
     this.state = {
-      email: "",
+      username: "",
       password: "",
       confirmPassword: ""
+      
     };
+
   }
 
+
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 5 && this.state.password == this.state.confirmPassword;
+    return this.state.username.length > 0 && this.state.password.length > 5 && this.state.password == this.state.confirmPassword;
   }
 
   handleChange = event => {
@@ -23,23 +36,54 @@ import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } fro
     });
   }
 
-  handleSubmit = event => {
+
+
+  handleSubmit(event) {
     event.preventDefault();
+    body = {
+      username: this.state.username,
+      password: this.state.password,
+
+     //confirmPassword: this.state.confirmPassword,
+    }
+ 
+    const url = "http://localhost:9000/login";
+    let headers = new Headers();
+ 
+    headers.append('Content-Type','application/json');
+    headers.append('Accept','application/json');
+ 
+    headers.append('Access-Control-Allow-origin',url);
+    headers.append('Access-Control-Allow-Credentials','true');
+ 
+    headers.append('GET','POST');
+ 
+    fetch(url, {
+       headers:headers,
+       method: 'POST',
+       body: JSON.stringify(body)
+    })
+    .then(response => response.json())
+    .then(contents => {console.log(contents);
+                      
+ })
+ .catch(()=> console.log("can't access" + url + "response. "))
+ return (
+  <Router>
+ <Route  exact path='/login' component={login}/>
+ </Router>
+ )
   }
 
   render() {
     return (
-            <Form onSubmit={this.handleSubmit}>
-            
-            <Form horizontal>
-                <PageHeader>
-                    Register Here!! 
-                </PageHeader>
-
-                <FormGroup controlId="email">
-                    <Col componentClass={ControlLabel} sm={2}> Email </Col>
+          <Modal.Dialog>  
+            <Form onSubmit={this.handleSubmit } horizontal>
+            <Modal.Header >Register Here!!</Modal.Header>            
+                <FormGroup controlId="username">
+                    <Col componentClass={FormLabel} sm={2}> Email </Col>
                     <Col sm={10}>
-                        <FormControl type="email" placeholder="Email" 
+                        <FormControl type="username" placeholder="username" 
                                     value = {this.state.email} 
                                     onChange = {this.handleChange}
                         />
@@ -47,7 +91,7 @@ import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } fro
                 </FormGroup>
                 
                 <FormGroup controlId="password">
-                    <Col componentClass={ControlLabel} sm={2}>Password</Col>
+                    <Col componentClass={FormLabel} sm={2}>Password</Col>
                     <Col sm={10}>
                     <FormControl type="password" placeholder="Password" 
                                     value={this.state.password}
@@ -57,7 +101,7 @@ import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } fro
                 </FormGroup>
 
                 <FormGroup controlId="confirmPassword">
-                    <Col componentClass={ControlLabel} sm={2}>Password</Col>
+                    <Col componentClass={FormLabel} sm={2}>Password</Col>
                     <Col sm={10}>
                     <FormControl type="password" placeholder=" Confirm Password" 
                                     value={this.state.confirmPassword}
@@ -69,12 +113,13 @@ import { Form, Button, FormGroup, FormControl, ControlLabel,Col,PageHeader } fro
                 <FormGroup>
                     
                     <Col smOffset={2} sm={10}>
-                    <Button href="#" type="submit" disabled={!this.validateForm()} >Register</Button>
+                    <Button onClick = {this.handleSubmit} type="submit" disabled={!this.validateForm()} >Register</Button>
                     </Col>
                                 
                 </FormGroup>
             </Form>
-           </Form>           
+            </Modal.Dialog>
+         
     );
   }
 }
