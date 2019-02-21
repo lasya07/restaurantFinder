@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import Review from "./reviews";
 import Rating from "./rating";
 import Bread from "./breadCrumbs"
-import Header from "./../home/header"
+import Header from "../Home/header"
 import Search from "./../Home/search"
 import NaviBar from "./NaviBar";
 

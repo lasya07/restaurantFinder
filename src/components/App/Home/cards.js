@@ -45,9 +45,7 @@ class Cards extends React.Component {
 
         
        render() {
-        d=this.state.data[0];
-        console.log(d)
-      // console.log(d.length)
+        
         return(
            
           <div>{this.state.data.map((RestaurantDetails,index) =>{

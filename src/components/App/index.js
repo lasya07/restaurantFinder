@@ -16,6 +16,7 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
+import SearchDetails from "./searchDetails";
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
                 <Route path="/Overview" component={Overview}/>
                 <Route path="/Photo" component={PhotoFinal}/>
                 <Route path="/Review" component={ReviewFinal}/>
+                <Route exact path="/Search" component={SearchDetails}/>
                 <Redirect to ="/home"/>
             </Switch>
         </Router> 

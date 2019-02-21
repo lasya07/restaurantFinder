@@ -1,20 +1,45 @@
 import React from "react"
 import logo from "../image/Search.jpg"
 import { Container, Row, Col } from 'reactstrap';
-
+import {withRouter} from 'react-router-dom';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button } from 'reactstrap';
+import SearchImage from "./searchImage";
+import SearchDetails from "../searchDetails";
 
 class Search extends React.Component{
 
-    render() {
-        const style = {
-            height : 150,
-            width : '100%'
-       };
+    constructor(props){
+        super(props);
+        this.onButtonClick =this.onButtonClick.bind(this)
+        this.handleChange =this.handleChange.bind(this)
+        this.state = {
+          data : [{ }]
+        }
+      }
+      onButtonClick() {     
+          let name=this.state.search
+          console.log(name);
+          <SearchDetails name={this.state.name}/>
+         let path=`Search`;
+         this.props.history.push({
+            pathname: path,
+            state: {
+             name:name
+            }
+           });
+             
+      }
 
-            
+      handleChange(e) {
+        this.setState({search: e.target.value});
+     }
+
+      
+    render() {
+                   
         return(
             <div> 
-                
                     <Row >
                     <div class="col-md-3" style={{textAlign:'center'}}>
                         <select name="Places" style={{position: 'relative',width:'50%'}}>
@@ -24,13 +49,13 @@ class Search extends React.Component{
                         </select>
                         </div>
                         <div class="col-md-6">
-                        <input type="text" placeholder="Search for restaurant and cuisine .." style={{width:'100%'}}/> 
+                        <input type="text"  name="search" placeholder="Search for restaurant and cuisine .." style={{width:'100%'}} onChange={this.handleChange}/> 
                         </div>
                         <div class="col-md-3" style={{textAlign:'center'}}>
-                        <button type="submit" style={{position: 'relative',width : '50%'}}>Submit</button>
+                        <button type="submit" style={{position: 'relative',width : '50%'}} onClick={this.onButtonClick}>Submit</button>
                         </div>
                     </Row>
-              
+                    
             </div>
            
         )
@@ -38,4 +63,4 @@ class Search extends React.Component{
 
 }
 
-export default Search;
+export default withRouter(Search);
