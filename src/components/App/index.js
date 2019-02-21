@@ -8,7 +8,7 @@ import Home from "./Home/index"
 import Overview from "./restoDetails/index"
 import PhotoFinal from "./restoDetails/photoFinal";
 import ReviewFinal from "./restoDetails/ReviewFinal";
-
+import HomeLogin from "./login/HomeLogin"
 
 import {
     BrowserRouter as Router,
@@ -40,8 +40,8 @@ class App extends React.Component {
             </Switch>
         </Router> 
         
-
-        );
+        //     <HomeLogin/>
+         );
     }
 } 
 
