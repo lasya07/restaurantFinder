@@ -47,7 +47,7 @@ var body;
      //confirmPassword: this.state.confirmPassword,
     }
  
-    const url = "http://localhost:9000/login";
+    const url = "http://10.10.200.11:9000/register";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');

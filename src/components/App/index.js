@@ -9,6 +9,7 @@ import Home from "./Home/index"
 import Overview from "./restoDetails/index"
 import PhotoFinal from "./restoDetails/photoFinal";
 import ReviewFinal from "./restoDetails/ReviewFinal";
+import loggedin from "./loggedUser/index"
 
 import {
     BrowserRouter as Router,
@@ -34,6 +35,7 @@ class App extends React.Component {
                 <Route path="/Photo" component={PhotoFinal}/>
                 <Route path="/Review" component={ReviewFinal}/>
                 <Route exact path="/Search" component={SearchDetails}/>
+                <Route exact path="/loggedin" component={loggedin}/>
                 <Redirect to ="/home"/>
             </Switch>
         </Router> 
