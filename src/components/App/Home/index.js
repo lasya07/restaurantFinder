@@ -31,7 +31,6 @@ class Home extends React.Component {
             <div style ={{position:'relative',width:'100%'}}>
             
             {
-                
               ((localStorage.getItem("AccessToken") == null )?(<Header/>):(<LoggedHeader/>))
             }
             </div>

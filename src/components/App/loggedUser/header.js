@@ -46,9 +46,7 @@ export default class LogHeader extends React.Component {
               body :JSON.stringify(body)
           })
          localStorage.removeItem("AccessToken")
-         console.log("dljfl")
-          // let path=`home`
-          // this.props.history.push(path)
+        
           .then(response =>{ })
           .then(contents => {     })
            .catch(() => console.log("Can’t access " + url + " response. "))          
