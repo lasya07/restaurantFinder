@@ -2,6 +2,7 @@ import React from "react";
 
 
 import Header from "./../Home/header"
+import LoggedHeader from "./../loggedUser/header"
 import Search from "./../Home/search"
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
@@ -51,7 +52,10 @@ class SearchDetails extends React.Component {
         return (
             <div>
                 
-                <Header/>
+                {
+                
+                ((localStorage.getItem("AccessToken") == null )?(<Header/>):(<LoggedHeader/>))
+              }
                 <br></br>
                 <div style={{position:'relative'}}>
                 

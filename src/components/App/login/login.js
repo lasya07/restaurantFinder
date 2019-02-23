@@ -31,25 +31,21 @@ class Login extends Component {
     console.log(body)
     console.log(body.password)
     console.log(body.email)
-    const url = "http://10.10.200.11:9000/signIn?username="+body.email+"&password="+body.password;
-    const url1 = "http://10.10.200.11:9000/token?username="+body.email;
+    const url = "http://localhost:9000/signIn?username="+body.email+"&password="+body.password;
+    
     console.log(url)
-    console.log(url1)
+
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');
     headers.append('Accept','application/json');
  
     headers.append('Access-Control-Allow-origin',url);
-    headers.append('Access-Control-Allow-origin',url1);
+   
     headers.append('Access-Control-Allow-Credentials','true');
  
-    headers.append('POST','GET');
+    headers.append('PUT','GET');
 
-
- 
-
- 
     fetch(url, {
             headers:headers,
             method: 'PUT',
@@ -58,12 +54,13 @@ class Login extends Component {
           .then(response => response.json())
           .then(contents => {console.log(contents);
           
-                localStorage.setItem("AccessToken",contents.accessToken)
+                localStorage.setItem("AccessToken",contents.accessToken);
+                let path=`loggedin`
+          this.props.history.push(path);
                             
       })
           .catch(()=> console.log("can't access" + url + "response. "))
-          let path=`loggedin`
-          this.props.history.push(path);
+          
 
       }
 

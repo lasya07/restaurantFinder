@@ -3,7 +3,7 @@ import Header from "./header";
 import Cards from "./cards";
 import Search from "./search"
 import SearchImage from "./searchImage"
-import Header1 from "./../loggedUser/header"
+import LoggedHeader from "./../loggedUser/header"
 import {CardDeck} from "reactstrap";
 import {CardColumns} from "reactstrap";
 import Login from "../login/login.js";
@@ -19,15 +19,20 @@ import {
 class Home extends React.Component {
 
    
-       
+    
     render() {
-        localStorage.setItem("AccessToken",null)
-        return (
+        //localStorage.setItem("AccessToken",null)
         
+        return (
+            
             <div >
+                
+               
             <div style ={{position:'relative',width:'100%'}}>
+            
             {
-              (localStorage.getItem("AccessToken")?(<Header/>):(<Header1/>)) 
+                
+              ((localStorage.getItem("AccessToken") == null )?(<Header/>):(<LoggedHeader/>))
             }
             </div>
                 <hr></hr>
