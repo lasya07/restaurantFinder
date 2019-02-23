@@ -3,7 +3,7 @@ import Header from "./header";
 import Cards from "./../Home/cards";
 import Search from "./../Home/search"
 import SearchImage from "./../Home/searchImage"
-
+import Header1 from "./../Home/header"
 import {CardColumns} from "reactstrap";
 
 import Filter from "./../Home/filter"
@@ -20,10 +20,13 @@ class Loggedin extends React.Component {
    
        
     render() {
+        console.log(localStorage.getItem("AccessToken"))
         return (
             <div >
             <div style ={{position:'relative',width:'100%'}}>
-            <Header/>
+            {
+              (localStorage.getItem("AccessToken")?(<Header/>):(<Header1/>))  
+            }
             </div>
                 <hr></hr>
                 <div class="ml-auto" >

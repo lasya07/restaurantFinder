@@ -25,6 +25,7 @@ class Header extends React.Component{
           isOpen: false
         };
       }
+      
       toggle() {
         this.setState({
           isOpen: !this.state.isOpen
@@ -36,7 +37,7 @@ class Header extends React.Component{
         return(
             
             <div style={{backgroundColor:'#353535'}}>
-        <Navbar color="#353535'" light expand="md">
+        <Navbar color="#353535'" light expand="md" style={{background:'transparent'}}>
           <NavbarBrand href="/home" style={{color: '#fffa8b'}}>WebApp</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

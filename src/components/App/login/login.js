@@ -12,7 +12,7 @@ const responseGoogle = (response) => {
 }
 
 var body;
-
+let token="";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,6 @@ class Login extends Component {
 
   handleSubmit(event) {
 
-    
     body = {
       email: this.state.email,
       password: this.state.password,
@@ -33,33 +32,42 @@ class Login extends Component {
     console.log(body.password)
     console.log(body.email)
     const url = "http://10.10.200.11:9000/signIn?username="+body.email+"&password="+body.password;
+    const url1 = "http://10.10.200.11:9000/token?username="+body.email;
     console.log(url)
+    console.log(url1)
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');
     headers.append('Accept','application/json');
  
     headers.append('Access-Control-Allow-origin',url);
+    headers.append('Access-Control-Allow-origin',url1);
     headers.append('Access-Control-Allow-Credentials','true');
  
-    headers.append('GET','PUT');
+    headers.append('POST','GET');
+
+
+ 
+
  
     fetch(url, {
-       headers:headers,
-       method: 'PUT',
-       body: JSON.stringify(body)
-    })
-    .then(response => response.json())
-    .then(contents => {console.log(contents);
-                      
- })
- .catch(()=> console.log("can't access" + url + "response. "))
-  let path=`loggedin`
-  this.props.history.push(path)
- }
- 
-  
+            headers:headers,
+            method: 'PUT',
+            body: JSON.stringify(body)
+          })
+          .then(response => response.json())
+          .then(contents => {console.log(contents);
+          
+                localStorage.setItem("AccessToken",contents.accessToken)
+                            
+      })
+          .catch(()=> console.log("can't access" + url + "response. "))
+          let path=`loggedin`
+          this.props.history.push(path);
 
+      }
+
+  
 
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 5;

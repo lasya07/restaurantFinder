@@ -21,6 +21,9 @@ export default class LogHeader extends React.Component {
       isOpen: false
     };
   }
+
+
+  
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -36,7 +39,7 @@ export default class LogHeader extends React.Component {
             <Nav className="ml-auto" navbar>
               
               <NavItem>
-                <NavLink href="/home" style={{color: '#fffa8b',borderStyle:'groove'}}>Logout</NavLink>
+                <NavLink href="/home" style={{color: '#fffa8b',borderStyle:'groove'}} >Logout</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar >
                 <DropdownToggle nav caret style={{color: '#fffa8b'}}>
