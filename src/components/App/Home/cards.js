@@ -2,6 +2,7 @@ import React from "react"
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
     import {withRouter} from 'react-router-dom';
+    
 
     let d ;
 class Cards extends React.Component {
@@ -20,7 +21,7 @@ class Cards extends React.Component {
 
         componentDidMount() {
           //const url = "http://10.10.200.12:9000/foods"; 
-          const url = "http://localhost:9000/details"; 
+          const url = "http://localhost:9000/searchL"; 
           let headers = new Headers();
 
           headers.append('Content-Type', 'application/json');

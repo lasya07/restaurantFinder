@@ -39,10 +39,6 @@ var body;
 
 
   handleSubmit(event) {
-<<<<<<< HEAD
-
-=======
->>>>>>> cd51afe677e15d5fadef2c93793c01d6b1a764fc
     event.preventDefault();
     body = {
       username: this.state.username,
@@ -74,13 +70,8 @@ var body;
  .catch(()=> console.log("can't access" + url + "response. "))
  return (
   <Router>
-<<<<<<< HEAD
-    <Route  exact path='/login' component={login}/>
-  </Router>
-=======
  <Route  exact path='/login' component={login}/>
  </Router>
->>>>>>> cd51afe677e15d5fadef2c93793c01d6b1a764fc
  )
   }
 

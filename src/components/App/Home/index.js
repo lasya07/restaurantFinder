@@ -15,6 +15,7 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
+import GetLocation from "../searchDetails/getLocation";
  
 
 class Home extends React.Component {
@@ -27,7 +28,7 @@ class Home extends React.Component {
         return (
             
             <div >
-                
+                <GetLocation/>
                
             <div style ={{position:'relative',width:'100%'}}>
             
