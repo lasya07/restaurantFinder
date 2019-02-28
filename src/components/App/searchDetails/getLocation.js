@@ -2,7 +2,7 @@ import React from 'react';
 import {geolocated} from 'react-geolocated';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
-    
+
 class GetLocation extends React.Component {
 
     constructor(props) {
@@ -56,7 +56,8 @@ class GetLocation extends React.Component {
       }
 
   render() {
-    return (<Card width="100%" key = {index}>
+    return (
+    <Card width="100%" >
     <CardImg top width="100%" alt="Card image cap"/>
     <CardBody> 
          <div key={index}>
