@@ -9,7 +9,7 @@ import Overview from "./restoDetails/index"
 import PhotoFinal from "./restoDetails/photoFinal";
 import ReviewFinal from "./restoDetails/ReviewFinal";
 import HomeLogin from "./login/HomeLogin"
-
+import DisplayCards from "./overview/index"
 import {
     BrowserRouter as Router,
     Route,
@@ -36,11 +36,12 @@ class App extends React.Component {
                 <Route path="/Overview" component={Overview}/>
                 <Route path="/Photo" component={PhotoFinal}/>
                 <Route path="/Review" component={ReviewFinal}/>
+                <Route path="/overview" component ={DisplayCards}/>
                 <Redirect to ="/home"/>
             </Switch>
         </Router> 
-        
-        //     <HomeLogin/>
+        //<DisplayCards/>
+            
          );
     }
 } 
