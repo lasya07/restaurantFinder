@@ -25,6 +25,7 @@ class Header extends React.Component{
           isOpen: false
         };
       }
+      
       toggle() {
         this.setState({
           isOpen: !this.state.isOpen
@@ -36,13 +37,13 @@ class Header extends React.Component{
         return(
             
             <div style={{backgroundColor:'#353535'}}>
-        <Navbar color="#353535'" light expand="md">
-          <NavbarBrand href="#" style={{color: '#fffa8b'}}>WebApp</NavbarBrand>
+        <Navbar color="#353535'" light expand="md" style={{background:'transparent'}}>
+          <NavbarBrand href="/home" style={{color: '#fffa8b'}}>WebApp</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href={'/Login'} style={{color: '#fffa8b'}}>Login</NavLink>
+                <NavLink href={'/login'} style={{color: '#fffa8b'}}>Login</NavLink>
               </NavItem> 
               <NavItem>
                 <NavLink href={'/Signup'} style={{color: '#fffa8b',borderStyle:'groove'}}>Create an Account</NavLink>

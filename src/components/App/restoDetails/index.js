@@ -4,7 +4,8 @@ import Menu from "./Menu";
 import Review from "./reviews";
 import Rating from "./rating";
 import Bread from "./breadCrumbs"
-import Header from "./../home/header"
+import Header from "../Home/header"
+import Header1 from "./../loggedUser/header"
 import Search from "./../Home/search"
 import NaviBar from "./NaviBar";
 
@@ -14,7 +15,9 @@ class Details extends React.Component {
         return (
             <div>
                 
-                <Header/>
+                {
+                   (localStorage.getItem("AccessToken")?(<Header/>):(<Header1/>))      
+                }
                 <div style={{position:'relative'}}>
                 <Bread/>
                 <Search/> 
