@@ -8,75 +8,121 @@ class GetLocation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          latCords: '',
-          longCords: ''
+          latitude: '',
+          longitude: '',
+          
         };
       }
 
-    componentDidMount() {
+async componentDidMount() {
 
-        if(this.props.isGeolocationAvailable){
-            if(!this.props.isGeolocationEnabled){
-                latCords = this.props.coords.latitude,
-                longCords = this.props.coords.longitude
-            }
-            else {
-                latCords = 0,
-                longCords = 0
-            }
+    // Get the current position of the user
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+          this.setState(
+          (prevState) => ({
+              latitude: position.coords.latitude, 
+              longitude: position.coords.longitude
+              }), () => { this.getCards(); }
+          );
+      },
+          (error) => this.setState({ latitude: 0,longitude:0 }),
+          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+      );
+}
+    
+  
+  async getCards() {
+      //console.log(url)
+      let url = "http://localhost:9000/searchL?latitude=" + this.state.latitude + "&longitude=" + this.state.longitude ;
+      let headers = new Headers();
+      
+      headers.append('Content-Type', 'application/json');
+      headers.append('Accept', 'application/json');
+
+      headers.append('Access-Control-Allow-Origin', url);
+      headers.append('Access-Control-Allow-Credentials', 'true');
+
+      headers.append('GET', 'POST');
+      console.log(url)
+
+      try {
+        const response = await fetch(url, {
+          headers: headers,
+          method: 'GET'
+      });
+        if (!response.ok) {
+          throw Error(response.statusText);
         }
-        else{
-                latCords = 0,
-                longCords = 0
-        }
-
-        console.log(this.props.coords.latitude)
-        //const url = "http://10.10.200.12:9000/foods"; 
-        const url = "http://localhost:9000/searchL?latitude="+latCords+"&longitude=78"; 
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-
-        headers.append('Access-Control-Allow-Origin', url);
-        headers.append('Access-Control-Allow-Credentials', 'true');
-
-        headers.append('GET', 'POST');
-
-        fetch(url, {
-            headers: headers,
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(contents => {console.log("in fetch: "+ contents);
-                            this.setState ({
-                            data : contents})
-            })
-        .catch(() => console.log("Can’t access " + url + " response. "))
+        const json = await response.json();
+        this.setState({ data: json });
+      } catch (error) {
+        console.log(error);
       }
 
+      //   fetch(url, {
+      //     headers: headers,
+      //     method: 'GET'
+      // })
+      // .then(response => response.json())
+      // .then(contents => {console.log("in fetch: "+ contents);
+      //                     this.setState ({
+      //                     data : contents})
+      //     })
+      // .catch(() => console.log("Can’t access " + url + " response. ")) 
+       //console.log(contents); 
+      //  return(
+      //   <div>{this.state.data.map((RestaurantDetails,index) =>{
+      //     return(
+      //     <Card width="100%" key = {index}>
+      //       <CardImg top width="100%" alt="Card image cap"/>
+      //       <CardBody> 
+      //            <div key={index}>
+      //               <CardTitle>{RestaurantDetails.name}</CardTitle>
+      //               <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
+      //               <CardText>{RestaurantDetails.address}</CardText>
+      //               <Button onClick={this.onButtonChange}>Button</Button> 
+      //             </div>
+                
+      //       </CardBody>
+      //     </Card>
+      //     )
+      //      })}
+      //     </div>
+      //  )
+ }
+  
+      
   render() {
     return (
-    <Card width="100%" >
-    <CardImg top width="100%" alt="Card image cap"/>
-    <CardBody> 
-         <div key={index}>
-            <CardTitle>{RestaurantDetails.name}</CardTitle>
-            <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
-            <CardText>{RestaurantDetails.address}</CardText>
-            <Button onClick={this.onButtonChange}>Button</Button> 
-          </div>
-        
-    </CardBody>
-  </Card>
+       <h1>done</h1>
+      // <div>{this.state.data.map((RestaurantDetails,index) =>{
+      //   return(
+      //   <Card width="100%" key = {index}>
+      //     <CardImg top width="100%" alt="Card image cap"/>
+      //     <CardBody> 
+      //          <div key={index}>
+      //             <CardTitle>{RestaurantDetails.name}</CardTitle>
+      //             <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
+      //             <CardText>{RestaurantDetails.address}</CardText>
+      //             <Button onClick={this.onButtonChange}>Button</Button> 
+      //           </div>
+              
+      //     </CardBody>
+      //   </Card>
+      //   )
+      //    })}
+      //   </div>
     )
   }
 }
  
-export default geolocated({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 10000,
-})(GetLocation);
+// export default geolocated({
+//   positionOptions: {
+//     enableHighAccuracy: false,
+//   },
+//   userDecisionTimeout: 10000,
+// })(GetLocation);
+
+export default GetLocation;
 
