@@ -22,7 +22,7 @@ class SearchDetails extends React.Component {
     
     componentDidMount() {
         //const url = "http://10.10.200.12:9000/foods"; 
-        const url = "http://localhost:9000/search?name="+name;
+        const url = "http://localhost:9000/restaurants/search?name="+name;
         console.log(url) 
         let headers = new Headers();
 
@@ -64,10 +64,11 @@ class SearchDetails extends React.Component {
                 <label>Search Results:</label>
                 <br></br>
                 <div>{this.state.data.map((RestaurantDetails,index) =>{
+                    let url="http://localhost:9000/images?id="+RestaurantDetails.urls[0];
                 return(
                     <CardColumns >
-                        <Card width="100%">
-                        <CardImg top width="100%" alt="Card image cap"/>
+                        <Card >
+                        <CardImg top width="100%" src={url} alt="Card image cap"/>
                         <CardBody> 
                             <div key={index}>
                                 <CardTitle>{RestaurantDetails.name}</CardTitle>

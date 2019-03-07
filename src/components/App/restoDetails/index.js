@@ -8,22 +8,27 @@ import Header from "../Home/header"
 import Header1 from "./../loggedUser/header"
 import Search from "./../Home/search"
 import NaviBar from "./NaviBar";
+import Description from "./details";
 
+let id;
+var body;
 class Details extends React.Component {
 
     constructor(props){
         super(props);
-        id=(this.props.location.state.id)
-        console.log(id)
+         id =(this.props.location.state.id)
+       console.log(id)
         this.state = {
           data : []
         }
-      }
     
+    }
+     
     componentDidMount() {
-        //const url = "http://10.10.200.12:9000/foods"; 
-        const url = "http://localhost:9000/search/id";
-        console.log(url) 
+       
+        const url = "http://localhost:9000/restaurants/"+ id;
+        console.log(url)
+     
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -36,8 +41,7 @@ class Details extends React.Component {
 
         fetch(url, {
             headers: headers,
-            method: 'GET',
-            body: id
+            method: 'GET'
         })
         .then(response => response.json())
         .then(contents => {console.log("in fetch: "+ contents);
@@ -63,8 +67,10 @@ class Details extends React.Component {
                 <br></br>
                 </div>
                 <div><NaviBar/></div><br/>
-
+                <Description/>
+                <br></br>
                 <Menu/>
+
                 <Photo/>
                 <Rating/>
                 <Review/>
