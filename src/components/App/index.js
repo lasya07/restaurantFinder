@@ -26,22 +26,22 @@ class App extends React.Component {
        
     render() {
         return (
-        //     <Router>
-        //     <Switch>
-        //         <Route exact path ="/home" component ={Home}/>
-        //         <Route path ="/login" component ={Login}/>
-        //         <Route path ="/Signup" component ={Signup}/>
-        //         <Route path ="/Details" component ={Details}/>
-        //         <Route path ="/Menu" component ={MenuFinal}/>
-        //         <Route path="/Overview" component={Overview}/>
-        //         <Route path="/Photo" component={PhotoFinal}/>
-        //         <Route path="/Review" component={ReviewFinal}/>
-        //         <Route exact path="/Search" component={SearchDetails}/>
-        //         <Route exact path="/loggedin" component={loggedin}/>
-        //         <Redirect to ="/home"/>
-        //     </Switch>
-        // </Router> 
-        <Example/>
+            <Router>
+            <Switch>
+                <Route exact path ="/home" component ={Home}/>
+                <Route path ="/login" component ={Login}/>
+                <Route path ="/Signup" component ={Signup}/>
+                <Route path ="/Details" component ={Details}/>
+                <Route path ="/Menu" component ={MenuFinal}/>
+                <Route path="/Overview" component={Overview}/>
+                <Route path="/Photo" component={PhotoFinal}/>
+                <Route path="/Review" component={ReviewFinal}/>
+                <Route exact path="/Search" component={SearchDetails}/>
+                <Route exact path="/loggedin" component={loggedin}/>
+                <Redirect to ="/home"/>
+            </Switch>
+        </Router> 
+        
         
         );
     }

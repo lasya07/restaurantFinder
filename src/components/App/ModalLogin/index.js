@@ -1,10 +1,10 @@
 import React from "react"
 
-import {Modal, Button,FormGroup, Col, FormLabel, FormControl} from "react-bootstrap"
+import {Modal, Button,FormGroup, Col, FormLabel, FormControl, ModalBody} from "react-bootstrap"
 
 
 
-class Example extends React.Component {
+class ModalLogin extends React.Component {
     constructor(props, context) {
       super(props, context);
   
@@ -27,7 +27,7 @@ class Example extends React.Component {
     render() {
       return (
         <>
-          <Button variant="primary" onClick={this.handleShow}>
+          <Button variant="link" onClick={this.handleShow}style={{color: '#fffa8b'}}>
             Login
           </Button>
   
@@ -72,4 +72,4 @@ class Example extends React.Component {
     }
   }
   
-export default Example;
+export default ModalLogin;
