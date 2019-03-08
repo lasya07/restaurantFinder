@@ -32,7 +32,7 @@ async componentDidMount() {
 }
     
   
-  async getCards() {
+   getCards() {
       //console.log(url)
       let url = "http://localhost:9000/searchL?latitude=" + this.state.latitude + "&longitude=" + this.state.longitude ;
       let headers = new Headers();
@@ -46,73 +46,55 @@ async componentDidMount() {
       headers.append('GET', 'POST');
       console.log(url)
 
-      try {
-        const response = await fetch(url, {
-          headers: headers,
-          method: 'GET'
-      });
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        const json = await response.json();
-        this.setState({ data: json });
-      } catch (error) {
-        console.log(error);
-      }
-
-      //   fetch(url, {
+      // try {
+      //   const response =  fetch(url, {
       //     headers: headers,
       //     method: 'GET'
-      // })
-      // .then(response => response.json())
-      // .then(contents => {console.log("in fetch: "+ contents);
-      //                     this.setState ({
-      //                     data : contents})
-      //     })
-      // .catch(() => console.log("Can’t access " + url + " response. ")) 
-       //console.log(contents); 
-      //  return(
-      //   <div>{this.state.data.map((RestaurantDetails,index) =>{
-      //     return(
-      //     <Card width="100%" key = {index}>
-      //       <CardImg top width="100%" alt="Card image cap"/>
-      //       <CardBody> 
-      //            <div key={index}>
-      //               <CardTitle>{RestaurantDetails.name}</CardTitle>
-      //               <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
-      //               <CardText>{RestaurantDetails.address}</CardText>
-      //               <Button onClick={this.onButtonChange}>Button</Button> 
-      //             </div>
-                
-      //       </CardBody>
-      //     </Card>
-      //     )
-      //      })}
-      //     </div>
-      //  )
+      // });
+      //   if (!response.ok) {
+      //     throw Error(response.statusText);
+      //   }
+      //   const json =  response.json();
+      //   this.setState({ data: json });
+      // } catch (error) {
+      //   console.log(error);
+      // }
+
+        fetch(url, {
+          headers: headers,
+          method: 'GET'
+      })
+      .then(response => response.json())
+      .then(contents => {console.log("in fetch: "+ contents);
+                          this.setState ({
+                          data : contents})
+          })
+      .catch(() => console.log("Can’t access " + url + " response. ")) 
+       console.log(contents); 
+      
  }
   
       
   render() {
     return (
-       <h1>done</h1>
-      // <div>{this.state.data.map((RestaurantDetails,index) =>{
-      //   return(
-      //   <Card width="100%" key = {index}>
-      //     <CardImg top width="100%" alt="Card image cap"/>
-      //     <CardBody> 
-      //          <div key={index}>
-      //             <CardTitle>{RestaurantDetails.name}</CardTitle>
-      //             <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
-      //             <CardText>{RestaurantDetails.address}</CardText>
-      //             <Button onClick={this.onButtonChange}>Button</Button> 
-      //           </div>
+       //<h1>done</h1>
+      <div>{this.state.data.map((RestaurantDetails,index) =>{
+        return(
+        <Card width="100%" key = {index}>
+          <CardImg top width="100%" alt="Card image cap"/>
+          <CardBody> 
+               <div key={index}>
+                  <CardTitle>{RestaurantDetails.name}</CardTitle>
+                  <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
+                  <CardText>{RestaurantDetails.address}</CardText>
+                  <Button onClick={this.onButtonChange}>Button</Button> 
+                </div>
               
-      //     </CardBody>
-      //   </Card>
-      //   )
-      //    })}
-      //   </div>
+          </CardBody>
+        </Card>
+        )
+         })}
+        </div>
     )
   }
 }
