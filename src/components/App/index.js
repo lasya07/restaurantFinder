@@ -18,7 +18,8 @@ import {
     Redirect
 } from 'react-router-dom'
 import SearchDetails from "./searchDetails";
-import GetLocation from "./searchDetails/getLocation";
+import GetL from "./searchDetails/getL";
+import Demo from "./searchDetails/demo";
 
 
 
@@ -46,7 +47,8 @@ class App extends React.Component {
         //     </Switch>
         // </Router> 
         // //<Example/>
-        <GetLocation/>
+        <GetL/>
+        //<Demo/>
         
         );
     }

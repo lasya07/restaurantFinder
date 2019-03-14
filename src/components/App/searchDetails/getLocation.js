@@ -18,20 +18,35 @@ class GetLocation extends React.Component {
  componentDidMount() {
 
    // Get the current position of the user
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-          this.setState(
-        //   (prevState) => ({
-              latitude= position.coords.latitude, 
-              longitude= position.coords.longitude
+   if("geolocation" in navigator){
+    navigator.geolocation.getCurrentPosition(function(position){
+
+        latitude = position.coords.latitude,
+        longitude = position.coords.longitude
+        console.log(latitude)
+
+    });
+    }
+    else{
+        console.log("error")
+    }
+
+
+
+
+    //   (position) => {
+    //       this.setState(
+    //     //   (prevState) => ({
+    //           latitude= position.coords.latitude, 
+    //           longitude= position.coords.longitude
               
-            //   }), () => { this.getCards(); }
-          );
-          console.log(latitude)
-      },
-          (error) => this.setState({ latitude: 0,longitude:0 }),
-          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-      );
+    //         //   }), () => { this.getCards(); }
+    //       );
+    //       console.log(latitude)
+    //   },
+    //       (error) => this.setState({ latitude: 0,longitude:0 }),
+    //       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    //   )
         
    
 }
@@ -91,12 +106,6 @@ class GetLocation extends React.Component {
   }
 }
  
-// export default geolocated({
-//   positionOptions: {
-//     enableHighAccuracy: false,
-//   },
-//   userDecisionTimeout: 10000,
-// })(GetLocation);
 
 export default GetLocation;
 
