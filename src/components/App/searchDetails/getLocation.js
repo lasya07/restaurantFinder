@@ -12,28 +12,33 @@ class GetLocation extends React.Component {
           longitude: '',
           
         };
+        this.getCards = this.getCards.bind(this)
       }
 
-async componentDidMount() {
+ componentDidMount() {
 
-    // Get the current position of the user
+   // Get the current position of the user
     navigator.geolocation.getCurrentPosition(
       (position) => {
           this.setState(
-          (prevState) => ({
-              latitude: position.coords.latitude, 
-              longitude: position.coords.longitude
-              }), () => { this.getCards(); }
+        //   (prevState) => ({
+              latitude= position.coords.latitude, 
+              longitude= position.coords.longitude
+              
+            //   }), () => { this.getCards(); }
           );
+          console.log(latitude)
       },
           (error) => this.setState({ latitude: 0,longitude:0 }),
           { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
       );
+        
+   
 }
     
   
    getCards() {
-      //console.log(url)
+      console.log(url)
       let url = "http://localhost:9000/searchL?latitude=" + this.state.latitude + "&longitude=" + this.state.longitude ;
       let headers = new Headers();
       
@@ -46,21 +51,8 @@ async componentDidMount() {
       headers.append('GET', 'POST');
       console.log(url)
 
-      // try {
-      //   const response =  fetch(url, {
-      //     headers: headers,
-      //     method: 'GET'
-      // });
-      //   if (!response.ok) {
-      //     throw Error(response.statusText);
-      //   }
-      //   const json =  response.json();
-      //   this.setState({ data: json });
-      // } catch (error) {
-      //   console.log(error);
-      // }
 
-        fetch(url, {
+    fetch(url, {
           headers: headers,
           method: 'GET'
       })
@@ -77,24 +69,24 @@ async componentDidMount() {
       
   render() {
     return (
-       //<h1>done</h1>
-      <div>{this.state.data.map((RestaurantDetails,index) =>{
-        return(
-        <Card width="100%" key = {index}>
-          <CardImg top width="100%" alt="Card image cap"/>
-          <CardBody> 
-               <div key={index}>
-                  <CardTitle>{RestaurantDetails.name}</CardTitle>
-                  <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
-                  <CardText>{RestaurantDetails.address}</CardText>
-                  <Button onClick={this.onButtonChange}>Button</Button> 
-                </div>
+       <h1>done</h1>
+    //   <div>{this.state.data.map((RestaurantDetails,index) =>{
+    //     return(
+    //     <Card width="100%" key = {index}>
+    //       <CardImg top width="100%" alt="Card image cap"/>
+    //       <CardBody> 
+    //            <div key={index}>
+    //               <CardTitle>{RestaurantDetails.name}</CardTitle>
+    //               <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
+    //               <CardText>{RestaurantDetails.address}</CardText>
+    //               <Button onClick={this.onButtonChange}>Button</Button> 
+    //             </div>
               
-          </CardBody>
-        </Card>
-        )
-         })}
-        </div>
+    //       </CardBody>
+    //     </Card>
+    //     )
+    //      })}
+    //     </div>
     )
   }
 }

@@ -45,7 +45,7 @@ class App extends React.Component {
         //         <Redirect to ="/home"/>
         //     </Switch>
         // </Router> 
-        //<Example/>
+        // //<Example/>
         <GetLocation/>
         
         );
