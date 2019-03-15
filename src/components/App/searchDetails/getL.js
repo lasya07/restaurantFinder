@@ -11,7 +11,7 @@ class GetL extends React.Component {
         super(props)
         this.state = {
             isLoaded: false,
-            items: {},
+            items: [],
         }
 
     this.fetchWeather = this.fetchWeather.bind(this)
@@ -29,7 +29,7 @@ fetchWeather(apiStr) {
               console.log(result)
               this.setState({
                   isLoaded: true,
-                  items: result.main
+                  items: result
               });
               console.log(this.state);
           },
@@ -64,9 +64,11 @@ componentWillMount() {
 }
 
 render() {
+    if(this.state.isLoaded) {
     return (
     //   <h1>done</h1>
-      <div>{this.state.data.map((RestaurantDetails,index) =>{
+    
+      <div>{this.state.items.map((RestaurantDetails,index) =>{
         return(
         <Card width="100%" key = {index}>
           <CardImg top width="100%" alt="Card image cap"/>
@@ -84,6 +86,10 @@ render() {
          })}
         </div>
     )
+        }
+        else{
+            return(<h1>error</h1>)
+        }
   }
 }
 
