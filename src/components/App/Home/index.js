@@ -8,6 +8,7 @@ import {CardDeck} from "reactstrap";
 import {CardColumns} from "reactstrap";
 import Login from "../login/login.js";
 import Filter from "./filter"
+import GetL from "../searchDetails/getL"
 
 import {
     BrowserRouter as Router,
@@ -15,7 +16,8 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
-import GetLocation from "../searchDetails/getLocation";
+
+
  
 
 class Home extends React.Component {
@@ -28,7 +30,7 @@ class Home extends React.Component {
         return (
             
             <div >
-                <GetLocation/>
+                <GetL/>
                
             <div style ={{position:'relative',width:'100%'}}>
             

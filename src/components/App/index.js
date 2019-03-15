@@ -19,7 +19,7 @@ import {
 } from 'react-router-dom'
 import SearchDetails from "./searchDetails";
 import GetL from "./searchDetails/getL";
-import Demo from "./searchDetails/demo";
+import MapView from "./maps/locationA"
 
 
 
@@ -47,8 +47,8 @@ class App extends React.Component {
         //     </Switch>
         // </Router> 
         // //<Example/>
-        <GetL/>
-        //<Demo/>
+        //<GetL/>
+        <MapView/>
         
         );
     }
