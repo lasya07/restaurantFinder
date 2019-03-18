@@ -15,6 +15,7 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 import ModalLogin from "../ModalLogin";
+import ModalRegister from "../ModalRegister";
 
 class Header extends React.Component{
 
@@ -44,11 +45,12 @@ class Header extends React.Component{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                {/* <ModalLogin/> */}
-                <NavLink href={'/login'} style={{color: '#fffa8b'}}>login</NavLink>
+                <ModalLogin/>
+                {/* <NavLink href={'/login'} style={{color: '#fffa8b'}}>login</NavLink> */}
               </NavItem> 
               <NavItem>
-                <NavLink href={'/Signup'} style={{color: '#fffa8b',borderStyle:'groove'}}>Create an Account</NavLink>
+                <ModalRegister/>
+                {/* <NavLink href={'/Register'} style={{color: '#fffa8b',borderStyle:'groove'}}>Create an Account</NavLink> */}
               </NavItem>              
             </Nav>
           </Collapse>

@@ -67,12 +67,12 @@ class Cards extends React.Component {
          
           <div>{this.state.data.map((RestaurantDetails,index) =>{
                        
-            let url="http://localhost:9000/images?id="+RestaurantDetails.urls[0];
+           // let url="http://localhost:9000/images?id="+RestaurantDetails.urls[0];
             return(
              
               
             <Card width="100%">              
-               <CardImg top width="100%" src={url} alt="Card image cap" height="200px"/> 
+               <CardImg top width="100%"  alt="Card image cap" height="200px"/> 
               <CardBody>  
                    <div key={index}>  
                       <CardTitle>{RestaurantDetails.name}</CardTitle>

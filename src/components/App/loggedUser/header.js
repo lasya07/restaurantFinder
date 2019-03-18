@@ -82,7 +82,7 @@ export default class LogHeader extends React.Component {
                     Add Restaurant
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem href = "/home">
+                  <DropdownItem href = "/home" style={{color: '#fffa8b',borderStyle:'groove'}} onClick={this.Logout}>
                     Logout
                   </DropdownItem>
                 </DropdownMenu>

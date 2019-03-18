@@ -13,15 +13,25 @@ class SearchDetails extends React.Component {
 
     constructor(props){
         super(props);
-        name=(this.props.location.state.name)
+        this.handleSubmit =this.handleSubmit.bind(this)
         console.log(name)
         this.state = {
-          data : []
+          data : [],
+          name: this.props.location.state.name
         }
       }
     
     componentDidMount() {
-        //const url = "http://10.10.200.12:9000/foods"; 
+        console.log("hello")
+        this.requestData(this.state.name);
+      }
+
+      handleSubmit(name) {
+        console.log("hello")
+        this.requestData(name);
+    }
+
+      requestData(name) {
         const url = "http://localhost:9000/restaurants/search?name="+name;
         console.log(url) 
         let headers = new Headers();
@@ -46,7 +56,6 @@ class SearchDetails extends React.Component {
         .catch(() => console.log("Can’t access " + url + " response. "))
       }
 
-
     render() {
        
         return (
@@ -59,16 +68,17 @@ class SearchDetails extends React.Component {
                 <br></br>
                 <div style={{position:'relative'}}>
                 
-                <Search/> 
+                <Search onSubmit={this.handleSubmit}/> 
                 <br></br>
                 <label>Search Results:</label>
                 <br></br>
+                <CardColumns>
                 <div>{this.state.data.map((RestaurantDetails,index) =>{
-                    let url="http://localhost:9000/images?id="+RestaurantDetails.urls[0];
+                    //let url="http://localhost:9000/images?id="+RestaurantDetails.urls[0];
                 return(
-                    <CardColumns >
+                    
                         <Card >
-                        <CardImg top width="100%" src={url} alt="Card image cap"/>
+                        <CardImg top width="100%"  alt="Card image cap" height="200px"/>
                         <CardBody> 
                             <div key={index}>
                                 <CardTitle>{RestaurantDetails.name}</CardTitle>
@@ -79,10 +89,11 @@ class SearchDetails extends React.Component {
                             
                         </CardBody>
                         </Card>
-                        </CardColumns>
+                      
                     )
                 })}
                 </div>
+                </CardColumns>
                 <br></br>
                 </div>
                 

@@ -4,63 +4,61 @@ import {Modal, Button,FormGroup, Col, FormLabel, FormControl, ModalBody} from "r
 import { createBrowserHistory as createHistory } from "history";
 import { browserHistory } from 'history'
 import {withRouter} from 'react-router-dom';
-import ModalRegister from "../ModalRegister";
+import ModalLogin from "../ModalLogin";
 
 var body;
-class ModalLogin extends React.Component {
+class ModalRegister extends React.Component {
     constructor(props, context) {
       super(props, context);
       
       this.handleShow = this.handleShow.bind(this);
       this.handleClose = this.handleClose.bind(this);
       this.handleEmailChange = this.handleEmailChange.bind(this);
+      this.handleConfirmPassword = this.handleConfirmPassword.bind(this);
       this.handlePasswordChange = this.handlePasswordChange.bind (this);
-      this.login = this.login.bind(this);
+      this.signup = this.signup.bind(this);
   
       this.state = {
         show: false,
+        username: "",
+      password: "",
+      confirmPassword: ""
+      
       };
      
     }
     //history = createHistory(this.props);
-    login() {
+    signup() {
       body = {
         username: this.state.email,
-        password: this.state.password,
+        password: this.state.password
       }
       
-      console.log(body)
-      console.log(body.password)
-      console.log(body.useremail)
-      const url = "http://localhost:9000/signIn";
-      
-      console.log(url)
-  
-      let headers = new Headers();
-   
-      headers.append('Content-Type','application/json');
-      headers.append('Accept','application/json');
-   
-      headers.append('Access-Control-Allow-origin',url);
-     
-      headers.append('Access-Control-Allow-Credentials','true');
-   
-      headers.append('PUT','GET');
-      console.log(body)
-      fetch(url, {
-              headers:headers,
-              method: 'PUT',
-              body: JSON.stringify(body)
-            })
-            .then(response => response.json())
-            .then(contents => {console.log(contents);
-            
-                  localStorage.setItem("AccessToken",contents.accessToken);
-                  let path=`loggedin`
-                  this.props.history.push(path);
-                              
-        })
-            .catch((err)=> console.log(alert(err)))
+      const url = "http://localhost:9000/register";
+    let headers = new Headers();
+ 
+    headers.append('Content-Type','application/json');
+    headers.append('Accept','application/json');
+ 
+    headers.append('Access-Control-Allow-origin',url);
+    headers.append('Access-Control-Allow-Credentials','true');
+ 
+    headers.append('GET','POST');
+ 
+    fetch(url, {
+       headers:headers,
+       method: 'POST',
+       body: JSON.stringify(body)
+    })
+    .then(response => response.json())
+    .then(contents => {console.log(contents);
+        //<ModalLogin/>
+        // let path=`home`
+        // this.props.history.push(path);
+        this.setState({ show: false })
+                      
+ })
+ .catch(()=> console.log("can't access" + url + "response. "))
     }
   
     handleClose() {
@@ -71,6 +69,10 @@ class ModalLogin extends React.Component {
       this.setState({ show: true });
     }
   
+    handleConfirmPassword() {
+        this.setState({ confirmPassword: event.target.value})
+    }
+
     handleEmailChange() {
       this.setState({ email: event.target.value})
     }
@@ -86,13 +88,13 @@ class ModalLogin extends React.Component {
     render() {
       return (
         <>
-          <Button variant="link" onClick={this.handleShow} style={{color: '#fffa8b'}}>
-            Login
+          <Button variant="outline-warning" onClick={this.handleShow} style={{color: '#fffa8b',borderStyle:'groove'}}>
+            Create an Account
           </Button>
   
           <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Login!!</Modal.Title>
+              <Modal.Title>Register Here!!</Modal.Title>
             </Modal.Header>
             <Modal.Body>
 
@@ -116,24 +118,29 @@ class ModalLogin extends React.Component {
             </Col>
           </FormGroup>
 
+          <FormGroup >
+            <Col componentClass={FormLabel} sm={2}>
+              Confirm Password
+            </Col>
+            <Col >
+              <FormControl type="password" placeholder="ConfirmPassword" onChange={this.handleConfirmPassword}
+              />
+            </Col>
+          </FormGroup>
+
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="link" href={'/Register'}>Not Yet Registered?</Button>
-            <ModalRegister/>
-              <Button variant="primary" onClick={this.login}>
-                Login
+              <Button variant="primary" onClick={this.signup}>
+                Register
               </Button>
               <Button variant="danger" onClick={this.handleClose}>
                 Close
               </Button>
-              
-             
-              
-              </Modal.Footer>
+            </Modal.Footer>
           </Modal>
         </>
       );
     }
   }
   
-export default withRouter(ModalLogin);
+export default withRouter(ModalRegister);

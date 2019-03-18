@@ -6,11 +6,11 @@ import Login from "./login/login";
 import MenuFinal from "./restoDetails/menuFinal"
 import Signup from "./login/signup";
 import Home from "./Home/index"
-import Overview from "./restoDetails/index"
+import ModalLogin from "./ModalLogin/index"
+import ModalRegister from "./ModalRegister/index"
 import PhotoFinal from "./restoDetails/photoFinal";
 import ReviewFinal from "./restoDetails/ReviewFinal";
 import loggedin from "./loggedUser/index"
-import Example from "./ModalLogin";
 
 import {
     BrowserRouter as Router,
@@ -19,6 +19,7 @@ import {
     Redirect
 } from 'react-router-dom'
 import SearchDetails from "./searchDetails";
+//mport Description from "./restoDetails/details";
 
 
 
@@ -33,11 +34,13 @@ class App extends React.Component {
                 <Route path ="/Signup" component ={Signup}/>
                 <Route path ="/Details" component ={Details}/>
                 <Route path ="/Menu" component ={MenuFinal}/>
-                <Route path="/Overview" component={Overview}/>
+            
                 <Route path="/Photo" component={PhotoFinal}/>
                 <Route path="/Review" component={ReviewFinal}/>
                 <Route exact path="/Search" component={SearchDetails}/>
                 <Route exact path="/loggedin" component={loggedin}/>
+                <Route exact path="/Register" component={ModalRegister} />
+                
                 <Redirect to ="/home"/>
             </Switch>
         </Router> 

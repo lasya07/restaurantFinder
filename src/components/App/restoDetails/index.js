@@ -8,7 +8,7 @@ import Header from "../Home/header"
 import Header1 from "./../loggedUser/header"
 import Search from "./../Home/search"
 import NaviBar from "./NaviBar";
-import Description from "./details";
+
 
 let id;
 var body;
@@ -24,33 +24,7 @@ class Details extends React.Component {
     
     }
      
-    componentDidMount() {
-       
-        const url = "http://localhost:9000/restaurants/"+ id;
-        console.log(url)
-     
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-
-        headers.append('Access-Control-Allow-Origin', url);
-        headers.append('Access-Control-Allow-Credentials', 'true');
-
-        headers.append('GET', 'POST');
-
-        fetch(url, {
-            headers: headers,
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(contents => {console.log("in fetch: "+ contents);
-                            this.setState ({
-                            data : contents})
-            })
-        .catch(() => console.log("Can’t access " + url + " response. "))
-      }
-
+    
        
     render() {
 
@@ -70,7 +44,6 @@ class Details extends React.Component {
                 <Description/>
                 <br></br>
                 <Menu/>
-
                 <Photo/>
                 <Rating/>
                 <Review/>

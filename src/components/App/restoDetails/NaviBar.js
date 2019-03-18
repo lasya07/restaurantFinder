@@ -33,7 +33,7 @@ class NaviBar extends React.Component{
 <div >
 
     <ul style={ul}>
-    <li style={li}><a href="/Overview" style={a}>Overview</a></li>
+    <li style={li}><a href={"/Details"} style={a}>Overview</a></li>
     <li style={li}><a href={"/Menu"} style={a}>Menu</a></li>
     <li style={li}><a href="/Photo" style={a}>Photos</a></li>
     <li style={li}><a href="/Review" style={a}>Reviews</a></li>
