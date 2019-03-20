@@ -56,6 +56,7 @@ class Cards extends React.Component {
                               )
                               
               })
+             
           .catch(() => console.log("Can’t access " + url + " response. "))
 
         }
@@ -67,12 +68,12 @@ class Cards extends React.Component {
          
           <div>{this.state.data.map((RestaurantDetails,index) =>{
                        
-           // let url="http://localhost:9000/images?id="+RestaurantDetails.urls[0];
+            //let url=RestaurantDetails.imageUrls[0];
             return(
              
               
             <Card width="100%">              
-               <CardImg top width="100%"  alt="Card image cap" height="200px"/> 
+               <CardImg top width="100%" src={RestaurantDetails.imageUrls[0]} alt="Card image cap" height="200px"/> 
               <CardBody>  
                    <div key={index}>  
                       <CardTitle>{RestaurantDetails.name}</CardTitle>

@@ -136,6 +136,7 @@ class ModalRegister extends React.Component {
               <Button variant="danger" onClick={this.handleClose}>
                 Close
               </Button>
+             
             </Modal.Footer>
           </Modal>
         </>

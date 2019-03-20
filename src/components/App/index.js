@@ -1,7 +1,6 @@
 import React from "react";
 
 
-import Details from "./restoDetails/index";
 import Login from "./login/login";
 import MenuFinal from "./restoDetails/menuFinal"
 import Signup from "./login/signup";
@@ -19,7 +18,8 @@ import {
     Redirect
 } from 'react-router-dom'
 import SearchDetails from "./searchDetails";
-//mport Description from "./restoDetails/details";
+import Details from "./restoDetails/index";
+
 
 
 
@@ -32,12 +32,13 @@ class App extends React.Component {
                 <Route exact path ="/home" component ={Home}/>
                 <Route path ="/login" component ={Login}/>
                 <Route path ="/Signup" component ={Signup}/>
-                <Route path ="/Details" component ={Details}/>
+                <Route path="/Search" component = {SearchDetails}/>
+              
                 <Route path ="/Menu" component ={MenuFinal}/>
             
                 <Route path="/Photo" component={PhotoFinal}/>
                 <Route path="/Review" component={ReviewFinal}/>
-                <Route exact path="/Search" component={SearchDetails}/>
+                <Route path="/Details" component={Details}/>
                 <Route exact path="/loggedin" component={loggedin}/>
                 <Route exact path="/Register" component={ModalRegister} />
                 

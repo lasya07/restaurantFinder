@@ -118,8 +118,9 @@ class ModalLogin extends React.Component {
 
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="link" href={'/Register'}>Not Yet Registered?</Button>
+            <label>Not Yet Registered?</label>
             <ModalRegister/>
+            <br></br>
               <Button variant="primary" onClick={this.login}>
                 Login
               </Button>

@@ -10,6 +10,16 @@ import { Button } from "react-bootstrap";
 
 class ReviewFinal extends React.Component {
        
+    constructor(props){
+        super(props);
+        let id = this.props.location.state.id
+        this.state = {
+            id1 : this.props.location.state.id
+         
+        }
+        console.log(this.state.id1)
+      }
+
     render() {
         return (
             <div>
@@ -20,11 +30,10 @@ class ReviewFinal extends React.Component {
                 <Search/> 
                 <br></br>
                 </div>
-                <div><NaviBar/></div><br/>
-                <Rating/>
+                <div><NaviBar id={this.state.id1}/></div><br/>
+                <Rating id={this.state.id1}/>
                 <br/>
-                <Review/>
-                <Button> Submit</Button>
+             
             </div>
                 
             

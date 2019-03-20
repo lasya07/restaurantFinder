@@ -9,20 +9,41 @@ import { Card, CardImg, CardText, CardBody,
 import {CardColumns} from "reactstrap";
 
 let name;
+let id;
 class SearchDetails extends React.Component {
 
     constructor(props){
         super(props);
         this.handleSubmit =this.handleSubmit.bind(this)
+        this.onButtonChange =this.onButtonChange.bind(this)
         console.log(name)
         this.state = {
           data : [],
+          id : "",
           name: this.props.location.state.name
         }
       }
+
+      onButtonChange(event) {
+        this.setState({id:event.currentTarget.value}, ()=>{
+          console.log(this.state.id)
+        }
+        
+        );
+        console.log(this.state.id)
+        let path=`Details`;
+        
+       this.props.history.push({
+          pathname: path,
+          state: {
+             id:event.currentTarget.value
+          }
+         });
+         
+      }
     
     componentDidMount() {
-        console.log("hello")
+       // console.log("hello")
         this.requestData(this.state.name);
       }
 
@@ -68,7 +89,7 @@ class SearchDetails extends React.Component {
                 <br></br>
                 <div style={{position:'relative'}}>
                 
-                <Search onSubmit={this.handleSubmit}/> 
+                <Search /> 
                 <br></br>
                 <label>Search Results:</label>
                 <br></br>
@@ -78,13 +99,14 @@ class SearchDetails extends React.Component {
                 return(
                     
                         <Card >
-                        <CardImg top width="100%"  alt="Card image cap" height="200px"/>
+                        <CardImg top width="100%"  src={RestaurantDetails.imageUrls[0]} alt="Card image cap" height="200px"/>
                         <CardBody> 
                             <div key={index}>
                                 <CardTitle>{RestaurantDetails.name}</CardTitle>
                                 <CardSubtitle>{RestaurantDetails.phNo}</CardSubtitle>
                                 <CardText>{RestaurantDetails.address}</CardText>
-                                <Button onClick={this.onButtonChange}>Button</Button> 
+
+                                <Button onClick={this.onButtonChange} value={RestaurantDetails.id}>Details</Button> 
                                 </div>
                             
                         </CardBody>
