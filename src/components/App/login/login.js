@@ -27,13 +27,13 @@ class Login extends Component {
   handleSubmit(event) {
 
     body = {
-      email: this.state.email,
+      username: this.state.email,
       password: this.state.password,
     }
     console.log(body)
     console.log(body.password)
     console.log(body.email)
-    const url = "http://localhost:9000/signIn?username="+body.email+"&password="+body.password;
+    const url = "http://localhost:9000/signIn";
     
     console.log(url)
 
@@ -47,7 +47,7 @@ class Login extends Component {
     headers.append('Access-Control-Allow-Credentials','true');
  
     headers.append('PUT','GET');
-
+console.log(body)
     fetch(url, {
             headers:headers,
             method: 'PUT',
@@ -61,7 +61,7 @@ class Login extends Component {
           this.props.history.push(path);
                             
       })
-          .catch(()=> console.log("can't access" + url + "response. "))
+          .catch((err)=> console.log(alert(err)))
           
 
       }

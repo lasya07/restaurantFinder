@@ -6,7 +6,17 @@ import Search from "./../Home/search";
 import NaviBar from "./NaviBar";
 
 class PhotoFinal extends React.Component {
-       
+      
+    constructor(props){
+        super(props);
+        let id = this.props.location.state.id
+        this.state = {
+            id1 : this.props.location.state.id
+         
+        }
+        console.log(this.state.id1)
+      }
+
     render() {
         return (
             <div>
@@ -17,9 +27,9 @@ class PhotoFinal extends React.Component {
                 <Search/> 
                 <br></br>
                 </div>
-                <div><NaviBar/></div><br/>
-                <label>photos</label>
-                <Photo/>
+                <div><NaviBar id={this.state.id1}/></div><br/>
+                
+                <Photo  id={this.state.id1}/>
                 
             </div>
                 

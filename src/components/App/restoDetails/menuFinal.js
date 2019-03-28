@@ -10,18 +10,30 @@ import NaviBar from "./NaviBar";
 
 class MenuFinal extends React.Component {
        
+    constructor(props){
+        super(props);
+        let id = this.props.location.state.id
+        this.state = {
+            id1 : this.props.location.state.id
+         
+        }
+        console.log(this.state.id1)
+      }
+
     render() {
+       
         return (
+           
             <div>
-                
+              console.log(this.state.id1)
                 <Header/>
                 <div style={{position:'relative'}}>
                 <Bread/>
                 <Search/> 
                 <br></br>
                 </div>
-                <div><NaviBar/></div><br/>
-                <Menu/>
+                <div><NaviBar id={this.state.id1}/></div><br/>
+                <Menu id={this.state.id1}/>
                 
             </div>
                 
