@@ -22,7 +22,7 @@ import SearchDetails from "./searchDetails";
 import GetL from "./searchDetails/getL";
 import MapView from "./maps/locationA"
 import AddRestaurants from "./restoDetails/addRestaurants";
-
+import Addfilters from "./restoDetails/addfilters";
 
 
 
@@ -32,25 +32,25 @@ class App extends React.Component {
        
     render() {
         return (
-            <Router>
-            <Switch>
-                <Route exact path ="/home" component ={Home}/>
-                <Route path ="/login" component ={Login}/>
-                <Route path ="/Signup" component ={Signup}/>
-                <Route path="/Search" component = {SearchDetails}/>
+        //     <Router>
+        //     <Switch>
+        //         <Route exact path ="/home" component ={Home}/>
+        //         <Route path ="/login" component ={Login}/>
+        //         <Route path ="/Signup" component ={Signup}/>
+        //         <Route path="/Search" component = {SearchDetails}/>
               
-                <Route path ="/Menu" component ={MenuFinal}/>
+        //         <Route path ="/Menu" component ={MenuFinal}/>
             
-                <Route path="/Photo" component={PhotoFinal}/>
-                <Route path="/Review" component={ReviewFinal}/>
-                <Route path="/Details" component={Details}/>
-                <Route exact path="/loggedin" component={loggedin}/>
-                <Route exact path="/Register" component={ModalRegister} />
+        //         <Route path="/Photo" component={PhotoFinal}/>
+        //         <Route path="/Review" component={ReviewFinal}/>
+        //         <Route path="/Details" component={Details}/>
+        //         <Route exact path="/loggedin" component={loggedin}/>
+        //         <Route exact path="/Register" component={ModalRegister} />
                 
-                <Redirect to ="/home"/>
-            </Switch>
-        </Router> 
-        
+        //         <Redirect to ="/home"/>
+        //     </Switch>
+        // </Router> 
+        <Addfilters/>
         
         );
     }
