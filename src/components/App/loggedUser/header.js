@@ -39,7 +39,7 @@ class LogHeader extends React.Component {
   Logout() {
     body = { token: localStorage.getItem("AccessToken") }
     console.log(localStorage.getItem("AccessToken"))
-    const url = "http://localhost:9000/signOut?token="+localStorage.getItem("AccessToken"); 
+    const url = "http://10.10.200.10:9000/signOut?token="+localStorage.getItem("AccessToken"); 
     console.log(url)       
     let headers = new Headers();
 

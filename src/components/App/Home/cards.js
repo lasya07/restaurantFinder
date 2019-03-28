@@ -34,7 +34,7 @@ class Cards extends React.Component {
 
         componentDidMount() {
           //const url = "http://10.10.200.12:9000/foods"; 
-          const url = "http://localhost:9000/restaurants"; 
+          const url = "http://10.10.200.10:9000/restaurants"; 
           let headers = new Headers();
 
           headers.append('Content-Type', 'application/json');

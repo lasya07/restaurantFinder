@@ -26,7 +26,7 @@ class Photo extends React.Component {
     
     componentDidMount() {
        
-        const url = "http://localhost:9000/restaurants/id?id="+this.props.id;
+        const url = "http://10.10.200.10:9000/restaurants/id?id="+this.props.id;
         console.log(url) 
         let headers = new Headers();
 
