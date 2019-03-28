@@ -47,7 +47,10 @@ class Header extends React.Component{
               </NavItem> 
               <NavItem>
                 <NavLink href={'/Signup'} style={{color: '#fffa8b',borderStyle:'groove'}}>Create an Account</NavLink>
-              </NavItem>              
+              </NavItem> 
+              <NavItem>
+                <NavLink href={'/addRestants'} >CReate restaurants</NavLink> 
+              </NavItem>             
             </Nav>
           </Collapse>
         </Navbar>

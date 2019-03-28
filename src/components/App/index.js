@@ -20,7 +20,7 @@ import {
 import SearchDetails from "./searchDetails";
 import GetL from "./searchDetails/getL";
 import MapView from "./maps/locationA"
-
+import AddRestaurants from "./restoDetails/addRestaurants";
 
 
 
@@ -41,14 +41,17 @@ class App extends React.Component {
         //         <Route path="/Overview" component={Overview}/>
         //         <Route path="/Photo" component={PhotoFinal}/>
         //         <Route path="/Review" component={ReviewFinal}/>
+        //         <Route path ="/addRestaurants" component ={AddRestaurants}/>
         //         <Route exact path="/Search" component={SearchDetails}/>
         //         <Route exact path="/loggedin" component={loggedin}/>
         //         <Redirect to ="/home"/>
+                
         //     </Switch>
-        // </Router> 
+        //  </Router> 
         // //<Example/>
         //<GetL/>
-        <MapView/>
+        // <MapView/>
+        <AddRestaurants/>
         
         );
     }
