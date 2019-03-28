@@ -13,11 +13,13 @@
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "ionicons": "^4.5.5",
     "lokijs": "^1.5.6",
     "react": "^16.7.0",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",
     "react-dom": "^16.7.0",
+    "react-ionicons": "^3.0.1",
     "react-router-dom": "^4.3.1",
     "react-star-ratings": "^2.3.0",
     "reactstrap": "^7.1.0"

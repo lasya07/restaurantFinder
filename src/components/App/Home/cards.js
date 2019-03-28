@@ -68,7 +68,7 @@ class Cards extends React.Component {
          
           <div>{this.state.data.map((RestaurantDetails,index) =>{
                        
-            //let url=RestaurantDetails.imageUrls[0];
+            
             return(
              
               

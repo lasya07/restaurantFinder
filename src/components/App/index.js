@@ -19,6 +19,9 @@ import {
 } from 'react-router-dom'
 import SearchDetails from "./searchDetails";
 import Details from "./restoDetails/index";
+import addRestaurants from "./profilePage/addRestaurants";
+import ProfilePage from "./profilePage";
+import Bookmark from "./Home/bookmark";
 
 
 
@@ -41,11 +44,13 @@ class App extends React.Component {
                 <Route path="/Details" component={Details}/>
                 <Route exact path="/loggedin" component={loggedin}/>
                 <Route exact path="/Register" component={ModalRegister} />
-                
+                <Route exact path="/addRestaurant" component={addRestaurants} />
+                <Route exact path="/ProfilePage" component={ProfilePage}/>
                 <Redirect to ="/home"/>
             </Switch>
         </Router> 
-        
+      
+      
         
         );
     }

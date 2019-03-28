@@ -12,16 +12,28 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 var body;
-export default class LogHeader extends React.Component {
+import {withRouter} from 'react-router-dom';
+class LogHeader extends React.Component {
   constructor(props) {
     super(props);
 
     this.Logout = this.Logout.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.handleProfile = this.handleProfile.bind(this);
+    this.handleResataurant = this.handleResataurant.bind(this);
     this.state = {
       isOpen: false,
       data: []
     };
+  }
+
+  handleProfile() {
+   let path=`ProfilePage`
+   this.props.history.push(path)
+  }
+  handleResataurant() {
+    let path=`addRestaurant`
+   this.props.history.push(path)
   }
 
   Logout() {
@@ -75,10 +87,10 @@ export default class LogHeader extends React.Component {
                   Settings
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
+                  <DropdownItem onClick = {this.handleProfile}>
                     View Profile
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem onClick = {this.handleResataurant}>
                     Add Restaurant
                   </DropdownItem>
                   <DropdownItem divider />
@@ -94,3 +106,5 @@ export default class LogHeader extends React.Component {
     );
   }
 }
+
+export default withRouter(LogHeader);

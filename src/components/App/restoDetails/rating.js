@@ -58,12 +58,16 @@ export default class rating extends React.Component {
      handleChanges() {
          let ratings = this.state.ratings
          let reviews = this.state.reviews
+         if(localStorage.getItem("AccessToken")== null)
+            alert("Please Login to Review")
+            else {
          body = {
              restaurant_Id : this.props.id,
              user_id : localStorage.getItem("AccessToken"),
              review : reviews,
              rating : ratings
          }
+        }
          console.log(ratings)
          console.log(reviews)
          console.log(body)
@@ -92,7 +96,7 @@ export default class rating extends React.Component {
             .then(contents => {console.log(contents);
                               
         })
-            .catch((err)=> console.log(alert(err)))
+            .catch((err)=> console.log(err))
 
      }
 

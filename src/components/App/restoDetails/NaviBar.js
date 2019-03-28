@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import Bookmark from './bookmark';
 
 class NaviBar extends React.Component{
   constructor(props) {
@@ -8,7 +9,9 @@ class NaviBar extends React.Component{
     this.handleMenu = this.handleMenu.bind(this)
     this.handlePhotos = this.handlePhotos.bind(this)
     this.handleReview = this.handleReview.bind(this)
+   
   }
+ 
   handleOverview() {
     console.log(this.props.id)
     let path=`Details`;
@@ -92,6 +95,7 @@ class NaviBar extends React.Component{
     <li style={li}><a onClick={this.handleMenu} style={a}>Menu</a></li>
     <li style={li}><a onClick={this.handlePhotos} style={a}>Photos</a></li>
     <li style={li}><a onClick={this.handleReview} style={a}>Reviews</a></li>
+    <li style={li}><a onClick={this.handlefav} style={a}><Bookmark/></a></li>
     </ul>   
     </div>
 )
