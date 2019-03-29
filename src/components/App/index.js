@@ -11,7 +11,7 @@ import ModalRegister from "./ModalRegister/index"
 import PhotoFinal from "./restoDetails/photoFinal";
 import ReviewFinal from "./restoDetails/ReviewFinal";
 import loggedin from "./loggedUser/index"
-
+import Horizontal from "./restoDetails/slider"
 import {
     BrowserRouter as Router,
     Route,
@@ -20,11 +20,10 @@ import {
 } from 'react-router-dom'
 import SearchDetails from "./searchDetails";
 import GetL from "./searchDetails/getL";
-import MapView from "./maps/locationA"
+import MapView from "./maps/MapV"
 import AddRestaurants from "./restoDetails/addRestaurants";
 import Addfilters from "./restoDetails/addfilters";
-
-
+import RouteDir from "./maps/RoutingMachine"
 
 
 class App extends React.Component {
@@ -41,7 +40,7 @@ class App extends React.Component {
               
         //         <Route path ="/Menu" component ={MenuFinal}/>
             
-        //         <Route path="/Photo" component={PhotoFinal}/>
+        //         <Route path="/Photo" component={Horizantal}/>
         //         <Route path="/Review" component={ReviewFinal}/>
         //         <Route path="/Details" component={Details}/>
         //         <Route exact path="/loggedin" component={loggedin}/>
@@ -50,8 +49,10 @@ class App extends React.Component {
         //         <Redirect to ="/home"/>
         //     </Switch>
         // </Router> 
+          // <RouteDir/>
+        //<Horizontal/>
+        //<MapView/>
         <Addfilters/>
-        
         );
     }
 } 

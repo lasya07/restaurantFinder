@@ -18,6 +18,7 @@
     "leaflet": "^1.4.0",
     "leaflet-routing-machine": "^3.2.12",
     "lokijs": "^1.5.6",
+    "rc-slider": "^8.6.7",
     "react": "^16.7.0",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",

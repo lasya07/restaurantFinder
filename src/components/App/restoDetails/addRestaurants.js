@@ -88,7 +88,7 @@ export default class addRestaurants extends React.Component {
             <FormGroup row>
                 <Label for="imageUpload" sm={2}>Upload Image</Label>
                 <Col sm={10}>
-                    <Input type="file" name="file" id="imageUpload" onChange={(e)=>this._handleImageChange(e)} />
+                    <Input type="file" multiple name="file" id="imageUpload" onChange={(e)=>this._handleImageChange(e)} />
                     <button className="submitButton" type="submit" 
                         onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
                     {/* <FormText color="muted">

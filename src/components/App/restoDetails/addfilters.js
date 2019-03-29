@@ -1,6 +1,8 @@
 import React from 'react';
 import {Form, FormGroup, Label, Input,Button} from 'reactstrap'
 import Slider from 'react-rangeslider'
+import 'react-rangeslider/lib/index.css'
+
 
 export default class addfilters extends React.Component {
     constructor(props, context) {
@@ -9,17 +11,22 @@ export default class addfilters extends React.Component {
           volume: 0
         }
       }
-    
+      handleChangeStart = () => {
+        console.log('Change event started')
+      };
       handleOnChange (value) {
         this.setState({
           volume: value
         })
       }
+      handleChangeComplete = () => {
+        console.log('Change event completed')
+      };
 
     render () {
-        let { volume } = this.state
+        const { volume } = this.state
         return (
-            <Form>
+              <Form>
                 <legend>Cuisines </legend>
                 <FormGroup check>
                     <Label check>
@@ -32,13 +39,37 @@ export default class addfilters extends React.Component {
                     </Label>
                 </FormGroup>
                 <legend>Cost </legend>
-                <FormGroup>
-                <Slider
-                    value={volume}
-                    orientation="vertical"
-                    onChange={this.handleOnChange}
-                />
+                <FormGroup check>
+                    <Label check>
+                        <Input type = "checkbox" /> 500-1000
+                    </Label>
                 </FormGroup>
+                <FormGroup check>
+                    <Label check>
+                        <Input type = "checkbox" /> 350-500
+                    </Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Label check>
+                        <Input type = "checkbox" /> 250-350
+                    </Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Label check>
+                        <Input type = "checkbox" /> less than 250
+                    </Label>
+                </FormGroup>
+                                 
+                {/* <Slider
+                    min={0}
+                    max={100}
+                    value={volume}
+                    orientation="horizontal"
+                    onChangeStart={this.handleChangeStart}
+                    onChange={this.handleOnChange}
+                    onChangeComplete={this.handleChangeComplete}
+                /> */}
+              
                 <legend>More Filters</legend>
                 <FormGroup check>
                     <Label check>
@@ -66,8 +97,8 @@ export default class addfilters extends React.Component {
                 </FormGroup>
                 <FormGroup>
                 <Button color="link">Cost--high to low</Button> 
-                </FormGroup>                        
-            </Form>
+                </FormGroup>                         
+             </Form>
         );
     }
 }

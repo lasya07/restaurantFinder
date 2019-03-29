@@ -2,7 +2,7 @@
 import React, { createRef, Component } from 'react'
 import L from 'leaflet'
 import {Map, Marker, Popup, TileLayer,ZoomControl,Rectangle} from 'react-leaflet'
-
+import RoutingMachine from './RoutingMachine'
 
 
 export default class locationA extends Component{
@@ -49,6 +49,12 @@ export default class locationA extends Component{
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          <RoutingMachine
+                        color="#fff"
+                        map={this.map}
+                        //road={this.props.road}
+                        road={this.state.stateRoute}
+                    />
           {marker}
         </Map>
       )
