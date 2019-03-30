@@ -22,7 +22,8 @@ class ModalRegister extends React.Component {
         show: false,
         username: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+     
       
       };
      
@@ -31,10 +32,12 @@ class ModalRegister extends React.Component {
     signup() {
       body = {
         username: this.state.email,
-        password: this.state.password
+        password: this.state.password,
+  
       }
       
       const url = "http://10.10.200.10:9000/register";
+      console.log(body);
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');

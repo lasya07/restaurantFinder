@@ -95,7 +95,7 @@ class NaviBar extends React.Component{
     <li style={li}><a onClick={this.handleMenu} style={a}>Menu</a></li>
     <li style={li}><a onClick={this.handlePhotos} style={a}>Photos</a></li>
     <li style={li}><a onClick={this.handleReview} style={a}>Reviews</a></li>
-    <li style={li}><a onClick={this.handlefav} style={a}><Bookmark/></a></li>
+    <li style={li}><a onClick={this.handlefav} style={a}><Bookmark id={this.props.id}/></a></li>
     </ul>   
     </div>
 )

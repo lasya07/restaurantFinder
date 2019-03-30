@@ -13,6 +13,8 @@ import {
   DropdownItem } from 'reactstrap';
 var body;
 import {withRouter} from 'react-router-dom';
+
+import addRestaurant1 from "./../profilePage/addrestaurant1"
 class LogHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +34,7 @@ class LogHeader extends React.Component {
    this.props.history.push(path)
   }
   handleResataurant() {
-    let path=`addRestaurant`
+    let path=`addRes`
    this.props.history.push(path)
   }
 

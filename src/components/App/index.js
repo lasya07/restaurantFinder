@@ -21,7 +21,8 @@ import SearchDetails from "./searchDetails";
 import Details from "./restoDetails/index";
 import addRestaurants from "./profilePage/addRestaurants";
 import ProfilePage from "./profilePage";
-import Bookmark from "./Home/bookmark";
+import addRestaurant1 from "./profilePage/addrestaurant1";
+
 
 
 
@@ -45,6 +46,7 @@ class App extends React.Component {
                 <Route exact path="/loggedin" component={loggedin}/>
                 <Route exact path="/Register" component={ModalRegister} />
                 <Route exact path="/addRestaurant" component={addRestaurants} />
+                <Route exact path="/addRestaurant1" component={addRestaurant1} />
                 <Route exact path="/ProfilePage" component={ProfilePage}/>
                 <Redirect to ="/home"/>
             </Switch>

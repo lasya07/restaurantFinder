@@ -85,7 +85,7 @@ export default class rating extends React.Component {
      
       headers.append('Access-Control-Allow-Credentials','true');
    
-      headers.append('PUT','GET','POST');
+      headers.append('PUT','POST');
       console.log(body)
       fetch(url, {
               headers:headers,

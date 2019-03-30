@@ -14,7 +14,38 @@ class Profile extends React.Component {
 
     constructor(props){
         super(props);
-        this.addRestaurant =this.addRestaurant.bind(this)
+        this.addRestaurant =this.addRestaurant.bind(this);
+        this.state = {
+            data : [],
+            id:""
+          }
+      }
+      componentDidMount() {
+        const url = "http://10.10.200.10:9000/profile?Token="+localStorage.getItem("AccessToken"); 
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+
+        headers.append('Access-Control-Allow-Origin', url);
+        headers.append('Access-Control-Allow-Credentials', 'true');
+
+        headers.append('GET', 'POST');
+
+        fetch(url, {
+            headers: headers,
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(contents => {console.log("in fetch: "+ contents);
+                            this.setState ({
+                            data : contents}
+                            )
+                            
+            })
+           
+        .catch(() => console.log("Can’t access " + url + " response. "))
+
       }
 
       addRestaurant() {
@@ -30,6 +61,7 @@ class Profile extends React.Component {
             {
               ((localStorage.getItem("AccessToken") == null )?(<Header/>):(<LoggedHeader/>))
             }
+            {console.log(this.state.data)}
              <div style={{position:'relative'}}>
              <Breadcrumb>
                 <BreadcrumbItem><a href="/home" style={{color: '#6c757d'}}>Home</a></BreadcrumbItem>
@@ -37,7 +69,9 @@ class Profile extends React.Component {
                 </Breadcrumb>
              </div>
 
-            <Form>
+            <Form>{this.state.data.map((ProfileDetails, index)=> {
+                console.log(ProfileDetails.user)
+            })}
                 <FormGroup row>
                     <Col sm={{offset:11}}>
                     <Button onClick={this.addRestaurant}>Add Restaurant</Button>
